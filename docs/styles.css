@@ -805,6 +805,7 @@ h3 {
 }
 
 .control-image {
+	position: relative;
 	height: 560px;
 	overflow: hidden;
 	border: var(--border);
@@ -815,6 +816,54 @@ h3 {
 .control-image img {
 	width: 100%;
 	height: auto;
+}
+
+.control-image::after {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 100px;
+	background: linear-gradient(transparent, rgb(21 21 21 / 45%));
+	content: "";
+	pointer-events: none;
+}
+
+.control-image-cta {
+	position: absolute;
+	z-index: 1;
+	right: 14px;
+	bottom: 14px;
+	left: 14px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 9px 11px;
+	border: 2px solid var(--ink);
+	background: var(--yellow);
+	box-shadow: 3px 3px 0 var(--ink);
+	font-size: 10px;
+	font-weight: 950;
+	letter-spacing: 0.04em;
+	line-height: 1.2;
+	text-transform: uppercase;
+	transition:
+		background 150ms ease,
+		box-shadow 150ms ease,
+		transform 150ms ease;
+}
+
+.control-image-cta strong {
+	font-size: 11px;
+	white-space: nowrap;
+}
+
+.control-shot:hover .control-image-cta,
+.control-shot:focus-visible .control-image-cta {
+	background: var(--pink);
+	box-shadow: 5px 5px 0 var(--ink);
+	transform: translate(-2px, -2px);
 }
 
 .control-shot figcaption {
