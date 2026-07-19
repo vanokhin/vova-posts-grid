@@ -1,0 +1,11 @@
+node_modules/
+build/
+dist/
+vendor/
+
+.DS_Store
+npm-debug.log*
+
+*.min.css
+*.min.js
+*.scss

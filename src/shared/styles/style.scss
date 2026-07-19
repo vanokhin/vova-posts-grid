@@ -1,0 +1,68 @@
+.vovapg-block {
+	--vovapg-border: color-mix(in srgb, currentcolor 18%, transparent);
+	--vovapg-border-strong: color-mix(in srgb, currentcolor 38%, transparent);
+	--vovapg-focus-ring: color-mix(in srgb, currentcolor 45%, transparent);
+	--vovapg-muted: color-mix(in srgb, currentcolor 64%, transparent);
+	--vovapg-surface: color-mix(in srgb, currentcolor 4%, transparent);
+	box-sizing: border-box;
+	margin-block: 1.5rem;
+}
+
+.vovapg-block *,
+.vovapg-block *::before,
+.vovapg-block *::after {
+	box-sizing: border-box;
+}
+
+.vovapg-card__text {
+	color: var(--vovapg-muted);
+}
+
+.vovapg-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.55rem 0.9rem;
+	border: 1px solid currentcolor;
+	border-radius: 6px;
+	background: currentcolor;
+	box-shadow: none;
+	color: inherit;
+	font: inherit;
+	text-decoration: none;
+	transition:
+		filter 160ms ease,
+		outline-color 160ms ease,
+		box-shadow 160ms ease;
+}
+
+.vovapg-button span {
+	color: canvas;
+}
+
+.vovapg-button:hover,
+.vovapg-button:focus {
+	background: currentcolor;
+	box-shadow: none;
+	color: inherit;
+	filter: brightness(0.92);
+	text-decoration: none;
+}
+
+.vovapg-button:focus-visible {
+	outline: 2px solid var(--vovapg-focus-ring);
+	outline-offset: 3px;
+	box-shadow:
+		0 0 0 4px
+		color-mix(in srgb, var(--vovapg-focus-ring) 22%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.vovapg-block *,
+	.vovapg-block *::before,
+	.vovapg-block *::after {
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+		animation-duration: 0.01ms !important;
+	}
+}

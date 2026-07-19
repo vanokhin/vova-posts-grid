@@ -1,0 +1,209 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "vovapg/posts-grid",
+	"version": "1.0.0",
+	"title": "Posts Grid",
+	"category": "vova-posts-grid",
+	"icon": "grid-view",
+	"description": "Responsive post grid with query controls and AJAX pagination.",
+	"textdomain": "vova-posts-grid",
+	"attributes": {
+		"query": {
+			"type": "object",
+			"default": {
+				"queryType": "dynamic",
+				"postType": "post",
+				"taxonomy": "",
+				"terms": [],
+				"keyword": "",
+				"author": 0,
+				"includePosts": [],
+				"excludePosts": [],
+				"postsPerPage": 6,
+				"order": "DESC",
+				"orderby": "date",
+				"ignoreSticky": true,
+				"excludeCurrentPost": false,
+				"hasFeaturedImage": false,
+				"dateRange": {
+					"mode": "none",
+					"after": "",
+					"before": ""
+				},
+				"metaFilter": {
+					"enabled": false,
+					"key": "",
+					"compare": "exists",
+					"value": "",
+					"type": "text"
+				},
+				"posts": []
+			}
+		},
+		"desktopColumns": {
+			"type": "number",
+			"default": 3
+		},
+		"tabletColumns": {
+			"type": "number",
+			"default": 2
+		},
+		"mobileColumns": {
+			"type": "number",
+			"default": 1
+		},
+		"horizontalGap": {
+			"type": "number",
+			"default": 24
+		},
+		"verticalGap": {
+			"type": "number",
+			"default": 24
+		},
+		"imageSize": {
+			"type": "string",
+			"default": "medium_large"
+		},
+		"imageAspectRatio": {
+			"type": "string",
+			"default": "16:9"
+		},
+		"imageObjectFit": {
+			"type": "string",
+			"default": "cover"
+		},
+		"imageObjectPosition": {
+			"type": "string",
+			"default": "center center"
+		},
+		"imageBorderRadius": {
+			"type": "number",
+			"default": 10
+		},
+		"innerElementGap": {
+			"type": "number",
+			"default": 12
+		},
+		"titleFontSize": {
+			"type": "number",
+			"default": 17.6
+		},
+		"metaFontSize": {
+			"type": "number",
+			"default": 13.76
+		},
+		"excerptFontSize": {
+			"type": "number",
+			"default": 15.36
+		},
+		"readMoreFontSize": {
+			"type": "number",
+			"default": 16
+		},
+		"textLineHeight": {
+			"type": "number",
+			"default": 1.35
+		},
+		"elements": {
+			"type": "array",
+			"default": [
+				{ "id": "image", "visible": true },
+				{ "id": "title", "visible": true },
+				{ "id": "meta", "visible": true },
+				{ "id": "excerpt", "visible": true },
+				{ "id": "readMore", "visible": true }
+			]
+		},
+		"metaFields": {
+			"type": "array",
+			"default": [ "date", "author", "categories" ]
+		},
+		"readMoreLabel": {
+			"type": "string",
+			"default": "Read more"
+		},
+		"readMoreStyle": {
+			"type": "string",
+			"default": "button"
+		},
+		"readMorePadding": {
+			"type": "number",
+			"default": 9
+		},
+		"fullCardClickable": {
+			"type": "boolean",
+			"default": false
+		},
+		"openLinksInNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"excerptLength": {
+			"type": "number",
+			"default": 24
+		},
+		"emptyStateText": {
+			"type": "string",
+			"default": "No posts found."
+		},
+		"loadingSkeleton": {
+			"type": "boolean",
+			"default": false
+		},
+		"paginationType": {
+			"type": "string",
+			"default": "numbersPrevNext"
+		},
+		"paginationAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"accentColor": {
+			"type": "string",
+			"default": "#0088ff"
+		},
+		"metaColor": {
+			"type": "string",
+			"default": ""
+		},
+		"excerptColor": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"align": [ "wide", "full" ]
+	},
+	"editorScript": "file:./index.js",
+	"viewScript": "file:./view.js",
+	"style": "file:./style-index.css",
+	"editorStyle": "file:./index.css",
+	"render": "file:./render.php",
+	"example": {
+		"attributes": {
+			"desktopColumns": 3,
+			"tabletColumns": 2,
+			"mobileColumns": 1,
+			"horizontalGap": 24,
+			"verticalGap": 24,
+			"imageSize": "medium_large",
+			"imageAspectRatio": "16:9",
+			"imageObjectFit": "cover",
+			"imageObjectPosition": "center center",
+			"imageBorderRadius": 10,
+			"innerElementGap": 12,
+			"titleFontSize": 17.6,
+			"metaFontSize": 13.76,
+			"excerptFontSize": 15.36,
+			"readMoreFontSize": 16,
+			"textLineHeight": 1.35,
+			"readMorePadding": 9,
+			"paginationType": "numbersPrevNext",
+			"paginationAlignment": "center",
+			"accentColor": "#0088ff",
+			"metaColor": "",
+			"excerptColor": ""
+		}
+	}
+}

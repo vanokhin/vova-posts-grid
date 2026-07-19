@@ -1,0 +1,108 @@
+@use "../../shared/styles/editor";
+
+.vovapg-posts-grid--editor {
+	min-height: 120px;
+}
+
+.vovapg-posts-grid__editor-preview {
+	position: relative;
+}
+
+.vovapg-posts-grid--editor .vovapg-posts-grid__image-link,
+.vovapg-posts-grid--editor .vovapg-posts-grid__title,
+.vovapg-posts-grid--editor .vovapg-posts-grid__read-more,
+.vovapg-posts-grid--editor .vovapg-posts-grid__card-link {
+	pointer-events: none;
+}
+
+.vovapg-block.vovapg-posts-grid.vovapg-posts-grid--editor
+a.vovapg-posts-grid__title,
+.vovapg-block.vovapg-posts-grid.vovapg-posts-grid--editor
+a.vovapg-posts-grid__read-more--text-link {
+	text-decoration: none;
+	text-decoration-line: none;
+}
+
+.vovapg-block.vovapg-posts-grid.vovapg-posts-grid--editor
+a.vovapg-posts-grid__title:hover,
+.vovapg-block.vovapg-posts-grid.vovapg-posts-grid--editor
+a.vovapg-posts-grid__title:focus,
+.vovapg-block.vovapg-posts-grid.vovapg-posts-grid--editor
+a.vovapg-posts-grid__read-more--text-link:hover,
+.vovapg-block.vovapg-posts-grid.vovapg-posts-grid--editor
+a.vovapg-posts-grid__read-more--text-link:focus {
+	text-decoration-line: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.18em;
+}
+
+.vovapg-posts-grid__editor-loading {
+	position: absolute;
+	z-index: 2;
+	top: 12px;
+	right: 12px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	border: 1px solid #dcdcde;
+	border-radius: 999px;
+	background: #fff;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.vovapg-posts-grid-post-token-field .components-form-token-field__help {
+	margin-bottom: 18px;
+}
+
+.vovapg-posts-grid-elements-control {
+	margin-bottom: 16px;
+}
+
+.vovapg-posts-grid-elements-control__items {
+	display: grid;
+	gap: 8px;
+}
+
+.vovapg-posts-grid-elements-control__item {
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr) auto;
+	align-items: center;
+	gap: 10px;
+	padding: 10px;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	background: #fff;
+	cursor: grab;
+}
+
+.vovapg-posts-grid-elements-control__item--dragging {
+	border-color: #2271b1;
+	opacity: 0.72;
+}
+
+.vovapg-posts-grid-elements-control__handle {
+	color: #757575;
+	font-family: monospace;
+	font-size: 14px;
+	line-height: 1;
+}
+
+.vovapg-posts-grid-elements-control__label {
+	min-width: 0;
+	font-weight: 600;
+	line-height: 1.3;
+}
+
+.vovapg-posts-grid-elements-control__item .components-base-control {
+	margin-bottom: 0;
+}
+
+.vovapg-posts-grid-elements-control__item .components-toggle-control {
+	margin-bottom: 0;
+}
+
+.vovapg-posts-grid-elements-control__item .components-toggle-control__label {
+	margin-bottom: 0;
+}

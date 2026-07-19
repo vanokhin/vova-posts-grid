@@ -1,0 +1,115 @@
+.vovapg-sidebar-tabs-control {
+	display: flex;
+	align-items: stretch;
+	width: 100%;
+	margin: 0 0 16px;
+	border-bottom: 1px solid #ddd;
+	background: #fff;
+}
+
+.vovapg-sidebar-tabs-control__tab.components-button {
+	position: relative;
+	display: inline-flex;
+	flex: 1 1 0;
+	align-items: center;
+	justify-content: center;
+	min-width: 0;
+	height: 48px;
+	min-height: 48px;
+	padding: 3px 16px;
+	border: 0;
+	border-radius: 0;
+	background: transparent;
+	box-shadow: none;
+	color: #1e1e1e;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1.4;
+	text-align: center;
+}
+
+.vovapg-sidebar-tabs-control__tab.components-button::before {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	bottom: 12px;
+	left: 12px;
+	border-radius: 2px;
+	box-shadow: 0 0 0 0 transparent;
+	content: "";
+	pointer-events: none;
+	transition: all 0.1s linear;
+}
+
+.vovapg-sidebar-tabs-control__tab.components-button::after {
+	position: absolute;
+	right: 0;
+	bottom: -1px;
+	left: 0;
+	height: 0;
+	background: var(--wp-components-color-accent, var(--wp-admin-theme-color, #3858e9));
+	content: "";
+	pointer-events: none;
+	transition: all 0.1s linear;
+}
+
+.vovapg-sidebar-tabs-control__tab.components-button:disabled {
+	cursor: not-allowed;
+	opacity: 0.55;
+}
+
+.vovapg-sidebar-tabs-control__tab.components-button:hover:not(:disabled) {
+	color: #1e1e1e;
+	background: transparent;
+}
+
+.vovapg-sidebar-tabs-control__tab.components-button:focus:not(:disabled) {
+	box-shadow: none;
+	outline: none;
+}
+
+.vovapg-sidebar-tabs-control__tab.components-button:focus-visible::before {
+	box-shadow:
+		0 0 0 var(--wp-admin-border-width-focus, 2px)
+		var(--wp-components-color-accent, var(--wp-admin-theme-color, #3858e9));
+	outline: 2px solid transparent;
+}
+
+.vovapg-sidebar-tabs-control__tab.components-button.is-active {
+	background: transparent;
+	box-shadow: none;
+	color: #1e1e1e;
+}
+
+.vovapg-sidebar-tabs-control__tab.components-button.is-active::after {
+	height: var(--wp-admin-border-width-focus, 2px);
+	outline: 2px solid transparent;
+	outline-offset: -1px;
+}
+
+.vovapg-sidebar-tabs-control__label {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 0;
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.vovapg-color-settings-control {
+	width: 100%;
+	min-width: 0;
+}
+
+.color-block-support-panel__inner-wrapper .vovapg-color-settings-control {
+	flex: 1 1 100%;
+	grid-column: 1 / -1;
+}
+
+.vovapg-color-settings-control__reset {
+	display: flex;
+	justify-content: flex-end;
+	padding: 0 16px 16px;
+}
