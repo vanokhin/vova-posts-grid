@@ -151,7 +151,12 @@ const replaceVersionPlaceholder = ( filePath ) => {
 };
 
 const replaceVersionPlaceholders = ( pluginDirectory ) => {
-	[ 'vova-posts-grid.php', 'readme.txt' ].forEach( ( relativePath ) => {
+	[
+		'vova-posts-grid.php',
+		'readme.txt',
+		'src/blocks/posts-grid/block.json',
+		'build/blocks/posts-grid/block.json',
+	].forEach( ( relativePath ) => {
 		replaceVersionPlaceholder( path.join( pluginDirectory, relativePath ) );
 	} );
 };

@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "vovapg/posts-grid",
-	"version": "1.0.0",
+	"version": "999-version",
 	"title": "Posts Grid",
 	"category": "vova-posts-grid",
 	"icon": "grid-view",
