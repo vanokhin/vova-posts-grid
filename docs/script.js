@@ -33,3 +33,21 @@ document.addEventListener( 'keydown', ( event ) => {
 document.querySelectorAll( '[data-year]' ).forEach( ( element ) => {
 	element.textContent = new Date().getFullYear();
 } );
+
+document.addEventListener( 'click', ( event ) => {
+	if ( ! ( event.target instanceof Element ) ) {
+		return;
+	}
+
+	const link = event.target.closest( '[data-analytics-event]' );
+
+	if ( ! link || typeof window.gtag !== 'function' ) {
+		return;
+	}
+
+	window.gtag( 'event', link.dataset.analyticsEvent, {
+		link_url: link.href,
+		link_text: link.textContent.trim(),
+		link_location: link.dataset.analyticsLocation,
+	} );
+} );

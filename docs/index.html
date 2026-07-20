@@ -17,6 +17,21 @@
 		<link rel="icon" href="./favicon.svg" type="image/svg+xml" />
 		<link rel="stylesheet" href="./styles.css" />
 
+		<!-- Google tag (gtag.js) -->
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-NX3ZDMY43F"
+		></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push( arguments );
+			}
+			gtag( 'js', new Date() );
+
+			gtag( 'config', 'G-NX3ZDMY43F' );
+		</script>
+
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="Vova’s Posts Grid" />
 		<meta
@@ -121,12 +136,16 @@
 						href="https://github.com/vanokhin/vova-posts-grid"
 						target="_blank"
 						rel="noreferrer"
+						data-analytics-event="github_click"
+						data-analytics-location="header"
 					>
 						GitHub <span aria-hidden="true">↗</span>
 					</a>
 					<a
 						class="header-download"
 						href="https://github.com/vanokhin/vova-posts-grid/releases/latest/download/vova-posts-grid.zip"
+						data-analytics-event="download_click"
+						data-analytics-location="header"
 					>
 						Download latest <span aria-hidden="true">↓</span>
 					</a>
@@ -154,6 +173,8 @@
 							<a
 								class="button button-primary"
 								href="https://github.com/vanokhin/vova-posts-grid/releases/latest/download/vova-posts-grid.zip"
+								data-analytics-event="download_click"
+								data-analytics-location="hero"
 							>
 								Download for free
 								<span aria-hidden="true">↘</span>
@@ -163,6 +184,8 @@
 								href="https://github.com/vanokhin/vova-posts-grid"
 								target="_blank"
 								rel="noreferrer"
+								data-analytics-event="github_click"
+								data-analytics-location="hero"
 							>
 								View on GitHub
 								<span aria-hidden="true">↗</span>
@@ -525,6 +548,8 @@
 						<a
 							class="button button-cta"
 							href="https://github.com/vanokhin/vova-posts-grid/releases/latest/download/vova-posts-grid.zip"
+							data-analytics-event="download_click"
+							data-analytics-location="cta"
 						>
 							Download latest <span aria-hidden="true">↓</span>
 						</a>
@@ -559,6 +584,8 @@
 						href="https://github.com/vanokhin/vova-posts-grid"
 						target="_blank"
 						rel="noreferrer"
+						data-analytics-event="github_click"
+						data-analytics-location="footer"
 						>GitHub ↗</a
 					>
 					<a
