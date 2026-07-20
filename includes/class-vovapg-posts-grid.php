@@ -240,6 +240,10 @@ final class VOVAPG_Posts_Grid {
 			$post_type = 'post';
 		}
 
+		if ( ! self::is_public_taxonomy( $taxonomy ) ) {
+			$taxonomy = '';
+		}
+
 		if ( ! in_array( $order, array( 'ASC', 'DESC' ), true ) ) {
 			$order = 'DESC';
 		}
@@ -498,7 +502,7 @@ final class VOVAPG_Posts_Grid {
 		if ( 0 === strpos( $field, self::META_TAXONOMY_PREFIX ) ) {
 			$taxonomy = sanitize_key( substr( $field, strlen( self::META_TAXONOMY_PREFIX ) ) );
 
-			if ( '' !== $taxonomy && taxonomy_exists( $taxonomy ) ) {
+			if ( '' !== $taxonomy && self::is_public_taxonomy( $taxonomy ) ) {
 				return self::META_TAXONOMY_PREFIX . $taxonomy;
 			}
 		}
@@ -1088,7 +1092,7 @@ final class VOVAPG_Posts_Grid {
 	 * @return string
 	 */
 	private static function get_post_taxonomy_badges_meta_html( WP_Post $post, string $taxonomy ): string {
-		if ( '' === $taxonomy || ! taxonomy_exists( $taxonomy ) ) {
+		if ( '' === $taxonomy || ! self::is_public_taxonomy( $taxonomy ) ) {
 			return '';
 		}
 
@@ -1419,13 +1423,25 @@ final class VOVAPG_Posts_Grid {
 	 * @return bool
 	 */
 	private static function is_valid_tax_query( string $post_type, string $taxonomy, array $terms ): bool {
-		if ( '' === $taxonomy || empty( $terms ) || ! taxonomy_exists( $taxonomy ) ) {
+		if ( '' === $taxonomy || empty( $terms ) || ! self::is_public_taxonomy( $taxonomy ) ) {
 			return false;
 		}
 
 		$taxonomies = get_object_taxonomies( $post_type, 'names' );
 
 		return in_array( $taxonomy, $taxonomies, true );
+	}
+
+	/**
+	 * Checks whether a taxonomy is public.
+	 *
+	 * @param string $taxonomy Taxonomy.
+	 * @return bool
+	 */
+	private static function is_public_taxonomy( string $taxonomy ): bool {
+		$object = get_taxonomy( $taxonomy );
+
+		return $object instanceof WP_Taxonomy && ! empty( $object->public );
 	}
 
 	/**
