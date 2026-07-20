@@ -70,7 +70,6 @@ jobs:
               run: |
                   gh release create "${GITHUB_REF_NAME}" \
                       "dist/vova-posts-grid-${PACKAGE_VERSION}.zip#Installable WordPress plugin" \
-                      "dist/vova-posts-grid.zip#Latest installable WordPress plugin" \
                       "dist/SHA256SUMS#SHA-256 checksum" \
                       --verify-tag \
                       --generate-notes \
