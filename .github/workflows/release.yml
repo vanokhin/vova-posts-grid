@@ -69,7 +69,8 @@ jobs:
               shell: bash
               run: |
                   gh release create "${GITHUB_REF_NAME}" \
-                      "dist/vova-post-grids-${PACKAGE_VERSION}.zip#Installable WordPress plugin" \
+                      "dist/vova-post-grids-${PACKAGE_VERSION}.zip#Stable Installable WordPress plugin" \
+                      "dist/vova-post-grids.zip#Latest Installable WordPress plugin" \
                       "dist/SHA256SUMS#SHA-256 checksum" \
                       --verify-tag \
                       --generate-notes \
