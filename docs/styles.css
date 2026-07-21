@@ -1109,7 +1109,7 @@ h3 {
 	background: var(--lime);
 	box-shadow: 6px 6px 0 var(--ink);
 	color: var(--ink);
-	font-size: 18px;
+	font-size: 20px;
 	font-weight: 950;
 	letter-spacing: 0.03em;
 	line-height: 1.05;
@@ -1624,7 +1624,7 @@ h3 {
 		left: 24px;
 		width: 100px;
 		height: 100px;
-		font-size: 14px;
+		font-size: 16px;
 	}
 
 	.art-grid {
