@@ -204,7 +204,7 @@ const ColorSettingsDropdown = ( {
 											>
 												{ __(
 													'Reset',
-													'vova-posts-grid'
+													'vova-post-grids'
 												) }
 											</Button>
 										</div>
@@ -296,7 +296,7 @@ export default function ColorSettingsControl( {
 	attributes = {},
 	setAttributes = noop,
 	controls = [],
-	title = __( 'Color settings', 'vova-posts-grid' ),
+	title = __( 'Color settings', 'vova-post-grids' ),
 	className,
 	colors,
 	disableCustomColors,

@@ -1,31 +1,31 @@
 <p align="center">
-  <a href="https://vanokhin.github.io/vova-posts-grid/">
-    <img src="docs/social-preview.png" alt="Vova's Posts Grid — a free Gutenberg block for flexible, responsive post grids" width="1200">
+  <a href="https://vanokhin.github.io/vova-post-grids/">
+    <img src="docs/social-preview.png" alt="Vova's Post Grids — a free Gutenberg block for flexible, responsive post grids" width="1200">
   </a>
 </p>
 
-<h1 align="center">Vova's Posts Grid</h1>
+<h1 align="center">Vova's Post Grids</h1>
 
 <p align="center">
   A focused Gutenberg block for flexible queries, responsive layouts, fully customizable cards, and smooth AJAX pagination.
 </p>
 
 <p align="center">
-  <a href="https://vanokhin.github.io/vova-posts-grid/"><strong>Website</strong></a>
+  <a href="https://vanokhin.github.io/vova-post-grids/"><strong>Website</strong></a>
   ·
-  <a href="https://github.com/vanokhin/vova-posts-grid/releases/latest/download/vova-posts-grid.zip"><strong>Download latest</strong></a>
+  <a href="https://github.com/vanokhin/vova-post-grids/releases/latest/download/vova-post-grids.zip"><strong>Download latest</strong></a>
   ·
-  <a href="https://github.com/vanokhin/vova-posts-grid/releases"><strong>Releases</strong></a>
+  <a href="https://github.com/vanokhin/vova-post-grids/releases"><strong>Releases</strong></a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/vanokhin/vova-posts-grid/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/vanokhin/vova-posts-grid?display_name=tag&sort=semver"></a>
+  <a href="https://github.com/vanokhin/vova-post-grids/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/vanokhin/vova-post-grids?display_name=tag&sort=semver"></a>
   <a href="https://wordpress.org/"><img alt="WordPress 6.5 or later" src="https://img.shields.io/badge/WordPress-6.5%2B-21759B?logo=wordpress&logoColor=white"></a>
   <a href="https://www.php.net/"><img alt="PHP 7.4 or later" src="https://img.shields.io/badge/PHP-7.4%2B-777BB4?logo=php&logoColor=white"></a>
   <a href="LICENSE"><img alt="GPL 2.0 or later" src="https://img.shields.io/badge/license-GPL--2.0--or--later-2E8B57"></a>
 </p>
 
-Vova's Posts Grid lets you build post grids directly in the WordPress block editor. Query any public post type, hand-pick specific posts, and control every part of the layout without an account, a paid tier, or an external service.
+Vova's Post Grids lets you build post grids directly in the WordPress block editor. Query any public post type, hand-pick specific posts, and control every part of the layout without an account, a paid tier, or an external service.
 
 ## Highlights
 
@@ -63,13 +63,13 @@ Vova's Posts Grid lets you build post grids directly in the WordPress block edit
 
 ### Install a release
 
-1. [Download the latest plugin ZIP](https://github.com/vanokhin/vova-posts-grid/releases/latest/download/vova-posts-grid.zip).
+1. [Download the latest plugin ZIP](https://github.com/vanokhin/vova-post-grids/releases/latest/download/vova-post-grids.zip).
 2. In WordPress, go to **Plugins → Add New Plugin → Upload Plugin**.
-3. Select the ZIP, install it, and activate **Vova's Posts Grid**.
+3. Select the ZIP, install it, and activate **Vova's Post Grids**.
 4. Open a post or page in the block editor.
-5. Add the **Posts Grid** block from the **Vova Posts Grid** category.
+5. Add the **Post Grids** block from the **Vova Post Grids** category.
 
-You can also extract the release into `wp-content/plugins/vova-posts-grid` and activate it from the Plugins screen.
+You can also extract the release into `wp-content/plugins/vova-post-grids` and activate it from the Plugins screen.
 
 > The installable release already contains compiled assets. A source checkout must be built before it can be used as a plugin.
 
@@ -96,8 +96,8 @@ The block also supports wide and full alignment. When pagination is enabled, onl
 Clone the repository and install the JavaScript and PHP development dependencies:
 
 ```bash
-git clone https://github.com/vanokhin/vova-posts-grid.git
-cd vova-posts-grid
+git clone https://github.com/vanokhin/vova-post-grids.git
+cd vova-post-grids
 npm ci
 composer install
 ```
@@ -118,9 +118,9 @@ The production build also regenerates the translation template, so make sure [WP
 ### Project structure
 
 ```text
-vova-posts-grid.php              Plugin bootstrap and block registration
+vova-post-grids.php              Plugin bootstrap and block registration
 includes/                        Server-side queries, rendering, and REST endpoint
-src/blocks/posts-grid/           Block metadata, editor UI, styles, and front-end script
+src/blocks/post-grids/           Block metadata, editor UI, styles, and front-end script
 src/shared/                      Shared editor components and styles
 languages/                       Translation template
 scripts/                         Reproducible release tooling

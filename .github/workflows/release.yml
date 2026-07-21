@@ -58,10 +58,10 @@ jobs:
               shell: bash
               run: |
                   cd dist
-                  cp "vova-posts-grid-${PACKAGE_VERSION}.zip" vova-posts-grid.zip
+                  cp "vova-post-grids-${PACKAGE_VERSION}.zip" vova-post-grids.zip
                   sha256sum \
-                      "vova-posts-grid-${PACKAGE_VERSION}.zip" \
-                      vova-posts-grid.zip > SHA256SUMS
+                      "vova-post-grids-${PACKAGE_VERSION}.zip" \
+                      vova-post-grids.zip > SHA256SUMS
 
             - name: Publish GitHub Release
               env:
@@ -69,8 +69,8 @@ jobs:
               shell: bash
               run: |
                   gh release create "${GITHUB_REF_NAME}" \
-                      "dist/vova-posts-grid-${PACKAGE_VERSION}.zip#Installable WordPress plugin" \
+                      "dist/vova-post-grids-${PACKAGE_VERSION}.zip#Installable WordPress plugin" \
                       "dist/SHA256SUMS#SHA-256 checksum" \
                       --verify-tag \
                       --generate-notes \
-                      --title "Vova's Posts Grid ${GITHUB_REF_NAME}"
+                      --title "Vova's Post Grids ${GITHUB_REF_NAME}"

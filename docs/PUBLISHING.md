@@ -1,4 +1,4 @@
-# Publishing the Posts Grid plugin and website
+# Publishing the Post Grids plugin and website
 
 GitHub Actions publishes installable plugin archives from version tags and deploys the dependency-free static site in `docs/` from `main`.
 
@@ -22,7 +22,7 @@ The release workflow builds and publishes the installable plugin ZIP whenever a 
     git push origin v1.1.0
     ```
 
-The workflow creates a GitHub Release with generated release notes, `vova-posts-grid-<version>.zip`, the stable `vova-posts-grid.zip` download, and `SHA256SUMS`. A version mismatch stops the release before publication.
+The workflow creates a GitHub Release with generated release notes, `vova-post-grids-<version>.zip`, the stable `vova-post-grids.zip` download, and `SHA256SUMS`. A version mismatch stops the release before publication.
 
 ## First publication
 
@@ -31,7 +31,7 @@ The workflow creates a GitHub Release with generated release notes, `vova-posts-
 3. Open the repository on GitHub and go to **Settings → Pages**.
 4. Under **Build and deployment**, select **GitHub Actions** as the source.
 5. Open **Actions → Deploy website to GitHub Pages**. If the push ran before Pages was enabled, choose **Run workflow** to start it again.
-6. After the workflow finishes, visit `https://vanokhin.github.io/vova-posts-grid/`.
+6. After the workflow finishes, visit `https://vanokhin.github.io/vova-post-grids/`.
 7. On the repository home page, open the **About** settings and set the website field to the published URL so visitors can find it immediately.
 
 GitHub may take several minutes to make the first deployment available.
@@ -56,7 +56,7 @@ When the plugin version changes:
 
 2. Update `docs/social-preview.svg` and regenerate `docs/social-preview.png` if the version is shown there.
 
-The download buttons and `downloadUrl` use the permanent `releases/latest/download/vova-posts-grid.zip` URL, so they automatically resolve to the latest published GitHub Release without website changes.
+The download buttons and `downloadUrl` use the permanent `releases/latest/download/vova-post-grids.zip` URL, so they automatically resolve to the latest published GitHub Release without website changes.
 
 ## Optional custom domain
 

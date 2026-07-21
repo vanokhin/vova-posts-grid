@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<ruleset name="Vova's Posts Grid">
-	<description>PHPCS rules for the Vova's Posts Grid WordPress plugin.</description>
+<ruleset name="Vova's Post Grids">
+	<description>PHPCS rules for the Vova's Post Grids WordPress plugin.</description>
 
-	<file>vova-posts-grid.php</file>
+	<file>vova-post-grids.php</file>
 	<file>includes</file>
 	<file>src</file>
 
@@ -35,7 +35,7 @@
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
-				<element value="vova-posts-grid"/>
+				<element value="vova-post-grids"/>
 			</property>
 		</properties>
 	</rule>

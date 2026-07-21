@@ -1,4 +1,4 @@
-=== Vova's Posts Grid ===
+=== Vova's Post Grids ===
 Contributors: gn_themes
 Tags: posts, grid, gutenberg, query loop, pagination
 Requires at least: 6.5
@@ -12,7 +12,7 @@ Responsive posts grid block.
 
 == Description ==
 
-Vova's Posts Grid adds a focused block for displaying WordPress content in responsive post grids.
+Vova's Post Grids adds a focused block for displaying WordPress content in responsive post grids.
 
 Build a dynamic query or select specific posts. Filter public content by post type, taxonomy, terms, keyword, author, date range, featured image, and custom fields. Control ordering, sticky posts, the current post, responsive columns, spacing, images, card elements, metadata, excerpts, links, empty states, loading skeletons, and AJAX pagination.
 
@@ -20,10 +20,10 @@ The block uses native WordPress data and editor components. It does not require 
 
 == Installation ==
 
-1. Upload the `vova-posts-grid` folder to `/wp-content/plugins/`, or install the plugin ZIP through `Plugins > Add New > Upload Plugin`.
-2. Activate **Vova's Posts Grid**.
+1. Upload the `vova-post-grids` folder to `/wp-content/plugins/`, or install the plugin ZIP through `Plugins > Add New > Upload Plugin`.
+2. Activate **Vova's Post Grids**.
 3. Open a post or page in the block editor.
-4. Add the **Posts Grid** block from the **Vova Posts Grid** category.
+4. Add the **Post Grids** block from the **Vova Post Grids** category.
 5. Configure the query, layout, content, and pagination in the block sidebar.
 
 == Frequently Asked Questions ==

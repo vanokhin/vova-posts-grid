@@ -1,13 +1,13 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "vovapg/posts-grid",
+	"name": "vovapg/post-grids",
 	"version": "999-version",
-	"title": "Posts Grid",
-	"category": "vova-posts-grid",
+	"title": "Post Grids",
+	"category": "vova-post-grids",
 	"icon": "grid-view",
 	"description": "Responsive post grid with query controls and AJAX pagination.",
-	"textdomain": "vova-posts-grid",
+	"textdomain": "vova-post-grids",
 	"attributes": {
 		"query": {
 			"type": "object",

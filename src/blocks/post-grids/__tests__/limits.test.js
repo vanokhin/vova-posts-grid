@@ -4,7 +4,7 @@ import {
 	getPublicPageNumber,
 } from '../limits';
 
-describe( 'Posts Grid public limits', () => {
+describe( 'Post Grids public limits', () => {
 	it( 'keeps the frontend page and card limits in sync', () => {
 		expect( MAX_PUBLIC_PAGE ).toBe( 100 );
 		expect( MAX_POSTS_PER_PAGE ).toBe( 50 );

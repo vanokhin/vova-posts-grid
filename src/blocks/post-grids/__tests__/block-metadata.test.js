@@ -1,6 +1,6 @@
 import metadata from '../block.json';
 
-describe( 'Posts Grid localized defaults', () => {
+describe( 'Post Grids localized defaults', () => {
 	it.each( [ 'readMoreLabel', 'emptyStateText' ] )(
 		'leaves %s empty for the translated runtime fallback',
 		( attribute ) => {

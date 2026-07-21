@@ -1,14 +1,14 @@
 {
-	"name": "vova-posts-grid",
+	"name": "vova-post-grids",
 	"version": "1.0.1",
-	"description": "A responsive Posts Grid block with flexible queries and AJAX pagination.",
+	"description": "A responsive Post Grids block with flexible queries and AJAX pagination.",
 	"author": "Vova Anokhin",
 	"license": "GPL-2.0-or-later",
 	"private": true,
 	"scripts": {
 		"start": "wp-scripts start --webpack-copy-php",
 		"build:assets": "wp-scripts build --webpack-copy-php",
-		"make-pot": "wp i18n make-pot . languages/vova-posts-grid.pot --slug=vova-posts-grid --domain=vova-posts-grid --exclude=build,node_modules,vendor,dist && node scripts/remove-pot-creation-date.js",
+		"make-pot": "wp i18n make-pot . languages/vova-post-grids.pot --slug=vova-post-grids --domain=vova-post-grids --exclude=build,node_modules,vendor,dist && node scripts/remove-pot-creation-date.js",
 		"build": "npm run build:assets && npm run make-pot",
 		"export": "node scripts/export.js",
 		"format": "prettier --write . --ignore-unknown",

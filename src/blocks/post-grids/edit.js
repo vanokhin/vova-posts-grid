@@ -51,28 +51,28 @@ import {
 	MAX_TERMS,
 } from './limits';
 
-const COLUMNS_DESKTOP_VAR = '--vovapg-posts-grid-columns-desktop';
-const COLUMNS_TABLET_VAR = '--vovapg-posts-grid-columns-tablet';
-const COLUMNS_MOBILE_VAR = '--vovapg-posts-grid-columns-mobile';
-const HORIZONTAL_GAP_VAR = '--vovapg-posts-grid-horizontal-gap';
-const VERTICAL_GAP_VAR = '--vovapg-posts-grid-vertical-gap';
-const IMAGE_ASPECT_RATIO_VAR = '--vovapg-posts-grid-image-aspect-ratio';
-const IMAGE_OBJECT_FIT_VAR = '--vovapg-posts-grid-image-object-fit';
-const IMAGE_OBJECT_POSITION_VAR = '--vovapg-posts-grid-image-object-position';
-const IMAGE_BORDER_RADIUS_VAR = '--vovapg-posts-grid-image-border-radius';
-const INNER_ELEMENT_GAP_VAR = '--vovapg-posts-grid-inner-element-gap';
-const TITLE_FONT_SIZE_VAR = '--vovapg-posts-grid-title-font-size';
-const META_FONT_SIZE_VAR = '--vovapg-posts-grid-meta-font-size';
-const EXCERPT_FONT_SIZE_VAR = '--vovapg-posts-grid-excerpt-font-size';
-const READ_MORE_FONT_SIZE_VAR = '--vovapg-posts-grid-read-more-font-size';
-const TEXT_LINE_HEIGHT_VAR = '--vovapg-posts-grid-text-line-height';
+const COLUMNS_DESKTOP_VAR = '--vovapg-post-grids-columns-desktop';
+const COLUMNS_TABLET_VAR = '--vovapg-post-grids-columns-tablet';
+const COLUMNS_MOBILE_VAR = '--vovapg-post-grids-columns-mobile';
+const HORIZONTAL_GAP_VAR = '--vovapg-post-grids-horizontal-gap';
+const VERTICAL_GAP_VAR = '--vovapg-post-grids-vertical-gap';
+const IMAGE_ASPECT_RATIO_VAR = '--vovapg-post-grids-image-aspect-ratio';
+const IMAGE_OBJECT_FIT_VAR = '--vovapg-post-grids-image-object-fit';
+const IMAGE_OBJECT_POSITION_VAR = '--vovapg-post-grids-image-object-position';
+const IMAGE_BORDER_RADIUS_VAR = '--vovapg-post-grids-image-border-radius';
+const INNER_ELEMENT_GAP_VAR = '--vovapg-post-grids-inner-element-gap';
+const TITLE_FONT_SIZE_VAR = '--vovapg-post-grids-title-font-size';
+const META_FONT_SIZE_VAR = '--vovapg-post-grids-meta-font-size';
+const EXCERPT_FONT_SIZE_VAR = '--vovapg-post-grids-excerpt-font-size';
+const READ_MORE_FONT_SIZE_VAR = '--vovapg-post-grids-read-more-font-size';
+const TEXT_LINE_HEIGHT_VAR = '--vovapg-post-grids-text-line-height';
 const READ_MORE_BUTTON_PADDING_VAR =
-	'--vovapg-posts-grid-read-more-button-padding';
+	'--vovapg-post-grids-read-more-button-padding';
 const PAGINATION_JUSTIFY_CONTENT_VAR =
-	'--vovapg-posts-grid-pagination-justify-content';
-const ACCENT_COLOR_VAR = '--vovapg-posts-grid-accent-color';
-const META_COLOR_VAR = '--vovapg-posts-grid-meta-color';
-const EXCERPT_COLOR_VAR = '--vovapg-posts-grid-excerpt-color';
+	'--vovapg-post-grids-pagination-justify-content';
+const ACCENT_COLOR_VAR = '--vovapg-post-grids-accent-color';
+const META_COLOR_VAR = '--vovapg-post-grids-meta-color';
+const EXCERPT_COLOR_VAR = '--vovapg-post-grids-excerpt-color';
 const DEFAULT_ACCENT_COLOR = '#0088ff';
 const DEFAULT_READ_MORE_BUTTON_PADDING = 9;
 const READ_MORE_BUTTON_PADDING_RATIO = 1.618;
@@ -80,24 +80,24 @@ const INSPECTOR_TAB_QUERY = 'query';
 const INSPECTOR_TAB_BLOCK = 'block';
 const INSPECTOR_TAB_CARD = 'card';
 const INSPECTOR_TAB_PANEL_IDS = {
-	[ INSPECTOR_TAB_QUERY ]: 'vovapg-posts-grid-inspector-query',
-	[ INSPECTOR_TAB_BLOCK ]: 'vovapg-posts-grid-inspector-block',
-	[ INSPECTOR_TAB_CARD ]: 'vovapg-posts-grid-inspector-card',
+	[ INSPECTOR_TAB_QUERY ]: 'vovapg-post-grids-inspector-query',
+	[ INSPECTOR_TAB_BLOCK ]: 'vovapg-post-grids-inspector-block',
+	[ INSPECTOR_TAB_CARD ]: 'vovapg-post-grids-inspector-card',
 };
 const INSPECTOR_TABS = [
 	{
 		name: INSPECTOR_TAB_QUERY,
-		title: __( 'Query', 'vova-posts-grid' ),
+		title: __( 'Query', 'vova-post-grids' ),
 		panelId: INSPECTOR_TAB_PANEL_IDS[ INSPECTOR_TAB_QUERY ],
 	},
 	{
 		name: INSPECTOR_TAB_BLOCK,
-		title: __( 'Block', 'vova-posts-grid' ),
+		title: __( 'Block', 'vova-post-grids' ),
 		panelId: INSPECTOR_TAB_PANEL_IDS[ INSPECTOR_TAB_BLOCK ],
 	},
 	{
 		name: INSPECTOR_TAB_CARD,
-		title: __( 'Card', 'vova-posts-grid' ),
+		title: __( 'Card', 'vova-post-grids' ),
 		panelId: INSPECTOR_TAB_PANEL_IDS[ INSPECTOR_TAB_CARD ],
 	},
 ];
@@ -106,7 +106,7 @@ const FONT_SIZE_CONTROLS = [
 	{
 		attribute: 'titleFontSize',
 		cssVariable: TITLE_FONT_SIZE_VAR,
-		label: __( 'Title text size', 'vova-posts-grid' ),
+		label: __( 'Title text size', 'vova-post-grids' ),
 		min: 10,
 		max: 72,
 		defaultValue: 17.6,
@@ -114,7 +114,7 @@ const FONT_SIZE_CONTROLS = [
 	{
 		attribute: 'metaFontSize',
 		cssVariable: META_FONT_SIZE_VAR,
-		label: __( 'Meta fields text size', 'vova-posts-grid' ),
+		label: __( 'Meta fields text size', 'vova-post-grids' ),
 		min: 10,
 		max: 32,
 		defaultValue: 13.76,
@@ -122,7 +122,7 @@ const FONT_SIZE_CONTROLS = [
 	{
 		attribute: 'excerptFontSize',
 		cssVariable: EXCERPT_FONT_SIZE_VAR,
-		label: __( 'Excerpt text size', 'vova-posts-grid' ),
+		label: __( 'Excerpt text size', 'vova-post-grids' ),
 		min: 10,
 		max: 40,
 		defaultValue: 15.36,
@@ -130,7 +130,7 @@ const FONT_SIZE_CONTROLS = [
 	{
 		attribute: 'readMoreFontSize',
 		cssVariable: READ_MORE_FONT_SIZE_VAR,
-		label: __( 'Read more text size', 'vova-posts-grid' ),
+		label: __( 'Read more text size', 'vova-post-grids' ),
 		min: 10,
 		max: 40,
 		defaultValue: 16,
@@ -140,17 +140,17 @@ const FONT_SIZE_CONTROLS = [
 const COLOR_CONTROLS = [
 	{
 		attribute: 'accentColor',
-		label: __( 'Accent color', 'vova-posts-grid' ),
+		label: __( 'Accent color', 'vova-post-grids' ),
 		isShownByDefault: true,
 	},
 	{
 		attribute: 'metaColor',
-		label: __( 'Meta color', 'vova-posts-grid' ),
+		label: __( 'Meta color', 'vova-post-grids' ),
 		isShownByDefault: true,
 	},
 	{
 		attribute: 'excerptColor',
-		label: __( 'Excerpt color', 'vova-posts-grid' ),
+		label: __( 'Excerpt color', 'vova-post-grids' ),
 		isShownByDefault: true,
 	},
 ];
@@ -302,7 +302,7 @@ const getMetaFieldOptions = ( taxonomies ) => {
 		.map( ( taxonomy ) => ( {
 			label: sprintf(
 				/* translators: %s: taxonomy name. */
-				__( '%s badges', 'vova-posts-grid' ),
+				__( '%s badges', 'vova-post-grids' ),
 				taxonomy.name || taxonomy.slug
 			),
 			value: getTaxonomyMetaFieldId( taxonomy.slug ),
@@ -381,7 +381,7 @@ const getPostTypeOptions = ( postTypes ) => {
 
 	if ( ! values.has( 'post' ) ) {
 		options.push( {
-			label: __( 'Post', 'vova-posts-grid' ),
+			label: __( 'Post', 'vova-post-grids' ),
 			value: 'post',
 		} );
 	}
@@ -392,7 +392,7 @@ const getPostTypeOptions = ( postTypes ) => {
 const getFallbackPostTitle = ( id ) =>
 	sprintf(
 		/* translators: %d: post ID. */
-		__( 'Post #%d', 'vova-posts-grid' ),
+		__( 'Post #%d', 'vova-post-grids' ),
 		id
 	);
 
@@ -711,7 +711,7 @@ function PostTokenField( {
 	};
 
 	return (
-		<div className="vovapg-posts-grid-post-token-field">
+		<div className="vovapg-post-grids-post-token-field">
 			<FormTokenField
 				label={ label }
 				value={ tokenValues }
@@ -777,17 +777,17 @@ function CardElementsControl( { elements, onChange } ) {
 
 	return (
 		<BaseControl
-			id="vovapg-posts-grid-elements-control"
-			label={ __( 'Card elements', 'vova-posts-grid' ) }
-			className="vovapg-posts-grid-elements-control"
+			id="vovapg-post-grids-elements-control"
+			label={ __( 'Card elements', 'vova-post-grids' ) }
+			className="vovapg-post-grids-elements-control"
 		>
-			<div className="vovapg-posts-grid-elements-control__items">
+			<div className="vovapg-post-grids-elements-control__items">
 				{ normalizedElements.map( ( element ) => (
 					<div
 						className={
 							draggedId === element.id
-								? 'vovapg-posts-grid-elements-control__item vovapg-posts-grid-elements-control__item--dragging'
-								: 'vovapg-posts-grid-elements-control__item'
+								? 'vovapg-post-grids-elements-control__item vovapg-post-grids-elements-control__item--dragging'
+								: 'vovapg-post-grids-elements-control__item'
 						}
 						key={ element.id }
 						draggable
@@ -814,16 +814,16 @@ function CardElementsControl( { elements, onChange } ) {
 						onDragEnd={ () => setDraggedId( '' ) }
 					>
 						<span
-							className="vovapg-posts-grid-elements-control__handle"
+							className="vovapg-post-grids-elements-control__handle"
 							aria-hidden="true"
 						>
 							::
 						</span>
-						<span className="vovapg-posts-grid-elements-control__label">
+						<span className="vovapg-post-grids-elements-control__label">
 							{ ELEMENT_LABELS[ element.id ] || element.id }
 						</span>
 						<ToggleControl
-							label={ __( 'Visible', 'vova-posts-grid' ) }
+							label={ __( 'Visible', 'vova-post-grids' ) }
 							checked={ element.visible }
 							onChange={ ( visible ) =>
 								setElementVisibility( element.id, visible )
@@ -905,17 +905,17 @@ function MetaFieldsControl( { fields, options, onChange } ) {
 
 	return (
 		<BaseControl
-			id="vovapg-posts-grid-meta-fields-control"
-			label={ __( 'Meta fields', 'vova-posts-grid' ) }
-			className="vovapg-posts-grid-elements-control vovapg-posts-grid-meta-fields-control"
+			id="vovapg-post-grids-meta-fields-control"
+			label={ __( 'Meta fields', 'vova-post-grids' ) }
+			className="vovapg-post-grids-elements-control vovapg-post-grids-meta-fields-control"
 		>
-			<div className="vovapg-posts-grid-elements-control__items">
+			<div className="vovapg-post-grids-elements-control__items">
 				{ orderedFields.map( ( field ) => (
 					<div
 						className={
 							draggedValue === field.value
-								? 'vovapg-posts-grid-elements-control__item vovapg-posts-grid-elements-control__item--dragging'
-								: 'vovapg-posts-grid-elements-control__item'
+								? 'vovapg-post-grids-elements-control__item vovapg-post-grids-elements-control__item--dragging'
+								: 'vovapg-post-grids-elements-control__item'
 						}
 						key={ field.value }
 						draggable
@@ -942,16 +942,16 @@ function MetaFieldsControl( { fields, options, onChange } ) {
 						onDragEnd={ () => setDraggedValue( '' ) }
 					>
 						<span
-							className="vovapg-posts-grid-elements-control__handle"
+							className="vovapg-post-grids-elements-control__handle"
 							aria-hidden="true"
 						>
 							::
 						</span>
-						<span className="vovapg-posts-grid-elements-control__label">
+						<span className="vovapg-post-grids-elements-control__label">
 							{ field.label }
 						</span>
 						<ToggleControl
-							label={ __( 'Visible', 'vova-posts-grid' ) }
+							label={ __( 'Visible', 'vova-post-grids' ) }
 							checked={ field.visible }
 							onChange={ ( visible ) =>
 								setFieldVisibility( field.value, visible )
@@ -1031,7 +1031,7 @@ export default function Edit( { attributes, setAttributes } ) {
 	);
 	const taxonomyOptions = useMemo(
 		() => [
-			{ label: __( 'None', 'vova-posts-grid' ), value: '' },
+			{ label: __( 'None', 'vova-post-grids' ), value: '' },
 			...availableTaxonomies.map( ( tax ) => ( {
 				label: tax.name || tax.slug,
 				value: tax.slug,
@@ -1060,7 +1060,7 @@ export default function Edit( { attributes, setAttributes } ) {
 	const authorOptions = useMemo(
 		() => [
 			{
-				label: __( 'Any author', 'vova-posts-grid' ),
+				label: __( 'Any author', 'vova-post-grids' ),
 				value: '0',
 			},
 			...( authors || [] ).map( ( author ) => ( {
@@ -1071,16 +1071,16 @@ export default function Edit( { attributes, setAttributes } ) {
 		[ authors ]
 	);
 	const blockClassName = [
-		'vovapg-posts-grid',
+		'vovapg-post-grids',
 		'vovapg-block',
-		'vovapg-posts-grid--editor',
+		'vovapg-post-grids--editor',
 		attributes.imageAspectRatio === 'auto'
 			? ''
-			: 'vovapg-posts-grid--fixed-image',
+			: 'vovapg-post-grids--fixed-image',
 		attributes.loadingSkeleton
-			? 'vovapg-posts-grid--has-loading-skeleton'
+			? 'vovapg-post-grids--has-loading-skeleton'
 			: '',
-		isLoading ? 'vovapg-posts-grid--loading' : '',
+		isLoading ? 'vovapg-post-grids--loading' : '',
 	]
 		.filter( Boolean )
 		.join( ' ' );
@@ -1096,7 +1096,7 @@ export default function Edit( { attributes, setAttributes } ) {
 
 		const timeoutId = setTimeout( () => {
 			apiFetch( {
-				path: '/vovapg/v1/posts-grid/preview',
+				path: '/vovapg/v1/post-grids/preview',
 				method: 'POST',
 				data: {
 					attributes: previewAttributes,
@@ -1118,7 +1118,7 @@ export default function Edit( { attributes, setAttributes } ) {
 						setError(
 							__(
 								'Could not load the posts grid preview.',
-								'vova-posts-grid'
+								'vova-post-grids'
 							)
 						);
 					}
@@ -1232,7 +1232,7 @@ export default function Edit( { attributes, setAttributes } ) {
 					onChange={ setActiveInspectorTab }
 					ariaLabel={ __(
 						'Posts grid settings sections',
-						'vova-posts-grid'
+						'vova-post-grids'
 					) }
 				/>
 				<div
@@ -1240,9 +1240,9 @@ export default function Edit( { attributes, setAttributes } ) {
 					role="tabpanel"
 				>
 					{ activeInspectorTab === INSPECTOR_TAB_QUERY && (
-						<PanelBody title={ __( 'Query', 'vova-posts-grid' ) }>
+						<PanelBody title={ __( 'Query', 'vova-post-grids' ) }>
 							<SelectControl
-								label={ __( 'Query type', 'vova-posts-grid' ) }
+								label={ __( 'Query type', 'vova-post-grids' ) }
 								value={ query.queryType }
 								options={ QUERY_TYPE_OPTIONS }
 								onChange={ ( queryType ) =>
@@ -1251,12 +1251,12 @@ export default function Edit( { attributes, setAttributes } ) {
 							/>
 							{ query.queryType === 'specific' ? (
 								<PostTokenField
-									label={ __( 'Posts', 'vova-posts-grid' ) }
+									label={ __( 'Posts', 'vova-post-grids' ) }
 									value={ query.posts }
 									subtype="any"
 									placeholder={ __(
 										'Search posts',
-										'vova-posts-grid'
+										'vova-post-grids'
 									) }
 									onChange={ ( posts ) =>
 										updateQuery( { posts } )
@@ -1267,7 +1267,7 @@ export default function Edit( { attributes, setAttributes } ) {
 									<SelectControl
 										label={ __(
 											'Post type',
-											'vova-posts-grid'
+											'vova-post-grids'
 										) }
 										value={ query.postType }
 										options={ postTypeOptions }
@@ -1284,7 +1284,7 @@ export default function Edit( { attributes, setAttributes } ) {
 									<SelectControl
 										label={ __(
 											'Taxonomy',
-											'vova-posts-grid'
+											'vova-post-grids'
 										) }
 										value={ query.taxonomy }
 										options={ taxonomyOptions }
@@ -1299,7 +1299,7 @@ export default function Edit( { attributes, setAttributes } ) {
 										<FormTokenField
 											label={ __(
 												'Terms',
-												'vova-posts-grid'
+												'vova-post-grids'
 											) }
 											value={ termValues }
 											suggestions={ termSuggestions }
@@ -1311,7 +1311,7 @@ export default function Edit( { attributes, setAttributes } ) {
 									<TextControl
 										label={ __(
 											'Keyword',
-											'vova-posts-grid'
+											'vova-post-grids'
 										) }
 										value={ query.keyword }
 										maxLength={ MAX_KEYWORD_LENGTH }
@@ -1327,7 +1327,7 @@ export default function Edit( { attributes, setAttributes } ) {
 									<SelectControl
 										label={ __(
 											'Author',
-											'vova-posts-grid'
+											'vova-post-grids'
 										) }
 										value={ String( query.author || 0 ) }
 										options={ authorOptions }
@@ -1340,7 +1340,7 @@ export default function Edit( { attributes, setAttributes } ) {
 									<ToggleControl
 										label={ __(
 											'Exclude current post',
-											'vova-posts-grid'
+											'vova-post-grids'
 										) }
 										checked={ !! query.excludeCurrentPost }
 										onChange={ ( excludeCurrentPost ) =>
@@ -1352,7 +1352,7 @@ export default function Edit( { attributes, setAttributes } ) {
 									<ToggleControl
 										label={ __(
 											'Only posts with featured images',
-											'vova-posts-grid'
+											'vova-post-grids'
 										) }
 										checked={ !! query.hasFeaturedImage }
 										onChange={ ( hasFeaturedImage ) =>
@@ -1362,7 +1362,7 @@ export default function Edit( { attributes, setAttributes } ) {
 									<SelectControl
 										label={ __(
 											'Date range',
-											'vova-posts-grid'
+											'vova-post-grids'
 										) }
 										value={ dateRange.mode }
 										options={ DATE_RANGE_OPTIONS }
@@ -1376,7 +1376,7 @@ export default function Edit( { attributes, setAttributes } ) {
 												type="date"
 												label={ __(
 													'After',
-													'vova-posts-grid'
+													'vova-post-grids'
 												) }
 												value={ dateRange.after || '' }
 												onChange={ ( after ) =>
@@ -1387,7 +1387,7 @@ export default function Edit( { attributes, setAttributes } ) {
 												type="date"
 												label={ __(
 													'Before',
-													'vova-posts-grid'
+													'vova-post-grids'
 												) }
 												value={ dateRange.before || '' }
 												onChange={ ( before ) =>
@@ -1401,7 +1401,7 @@ export default function Edit( { attributes, setAttributes } ) {
 									<ToggleControl
 										label={ __(
 											'Filter by custom field',
-											'vova-posts-grid'
+											'vova-post-grids'
 										) }
 										checked={ !! metaFilter.enabled }
 										onChange={ ( enabled ) =>
@@ -1413,7 +1413,7 @@ export default function Edit( { attributes, setAttributes } ) {
 											<TextControl
 												label={ __(
 													'Meta key',
-													'vova-posts-grid'
+													'vova-post-grids'
 												) }
 												value={ metaFilter.key || '' }
 												onChange={ ( key ) =>
@@ -1423,7 +1423,7 @@ export default function Edit( { attributes, setAttributes } ) {
 											<SelectControl
 												label={ __(
 													'Compare',
-													'vova-posts-grid'
+													'vova-post-grids'
 												) }
 												value={ metaFilter.compare }
 												options={
@@ -1438,7 +1438,7 @@ export default function Edit( { attributes, setAttributes } ) {
 											<SelectControl
 												label={ __(
 													'Type',
-													'vova-posts-grid'
+													'vova-post-grids'
 												) }
 												value={ metaFilter.type }
 												options={
@@ -1463,7 +1463,7 @@ export default function Edit( { attributes, setAttributes } ) {
 													<SelectControl
 														label={ __(
 															'Value',
-															'vova-posts-grid'
+															'vova-post-grids'
 														) }
 														value={
 															metaFilterBooleanValue
@@ -1472,14 +1472,14 @@ export default function Edit( { attributes, setAttributes } ) {
 															{
 																label: __(
 																	'True',
-																	'vova-posts-grid'
+																	'vova-post-grids'
 																),
 																value: '1',
 															},
 															{
 																label: __(
 																	'False',
-																	'vova-posts-grid'
+																	'vova-post-grids'
 																),
 																value: '0',
 															},
@@ -1497,7 +1497,7 @@ export default function Edit( { attributes, setAttributes } ) {
 														}
 														label={ __(
 															'Value',
-															'vova-posts-grid'
+															'vova-post-grids'
 														) }
 														value={
 															metaFilter.value ||
@@ -1515,13 +1515,13 @@ export default function Edit( { attributes, setAttributes } ) {
 									<PostTokenField
 										label={ __(
 											'Include posts',
-											'vova-posts-grid'
+											'vova-post-grids'
 										) }
 										value={ query.includePosts }
 										subtype={ query.postType || 'any' }
 										placeholder={ __(
 											'Search posts to include',
-											'vova-posts-grid'
+											'vova-post-grids'
 										) }
 										onChange={ ( includePosts ) =>
 											updateQuery( { includePosts } )
@@ -1530,13 +1530,13 @@ export default function Edit( { attributes, setAttributes } ) {
 									<PostTokenField
 										label={ __(
 											'Exclude posts',
-											'vova-posts-grid'
+											'vova-post-grids'
 										) }
 										value={ query.excludePosts }
 										subtype={ query.postType || 'any' }
 										placeholder={ __(
 											'Search posts to exclude',
-											'vova-posts-grid'
+											'vova-post-grids'
 										) }
 										onChange={ ( excludePosts ) =>
 											updateQuery( { excludePosts } )
@@ -1545,7 +1545,7 @@ export default function Edit( { attributes, setAttributes } ) {
 									<SelectControl
 										label={ __(
 											'Order by',
-											'vova-posts-grid'
+											'vova-post-grids'
 										) }
 										value={ query.orderby }
 										options={ ORDERBY_OPTIONS }
@@ -1556,7 +1556,7 @@ export default function Edit( { attributes, setAttributes } ) {
 									<SelectControl
 										label={ __(
 											'Order',
-											'vova-posts-grid'
+											'vova-post-grids'
 										) }
 										value={ query.order }
 										options={ ORDER_OPTIONS }
@@ -1567,7 +1567,7 @@ export default function Edit( { attributes, setAttributes } ) {
 									<ToggleControl
 										label={ __(
 											'Ignore sticky posts',
-											'vova-posts-grid'
+											'vova-post-grids'
 										) }
 										checked={ query.ignoreSticky }
 										onChange={ ( ignoreSticky ) =>
@@ -1579,7 +1579,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							<RangeControl
 								label={ __(
 									'Posts per page',
-									'vova-posts-grid'
+									'vova-post-grids'
 								) }
 								value={ query.postsPerPage }
 								allowReset
@@ -1601,11 +1601,11 @@ export default function Edit( { attributes, setAttributes } ) {
 						</PanelBody>
 					) }
 					{ activeInspectorTab === INSPECTOR_TAB_BLOCK && (
-						<PanelBody title={ __( 'Layout', 'vova-posts-grid' ) }>
+						<PanelBody title={ __( 'Layout', 'vova-post-grids' ) }>
 							<RangeControl
 								label={ __(
 									'Desktop columns',
-									'vova-posts-grid'
+									'vova-post-grids'
 								) }
 								value={ attributes.desktopColumns }
 								allowReset
@@ -1625,7 +1625,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							<RangeControl
 								label={ __(
 									'Tablet columns',
-									'vova-posts-grid'
+									'vova-post-grids'
 								) }
 								value={ attributes.tabletColumns }
 								allowReset
@@ -1645,7 +1645,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							<RangeControl
 								label={ __(
 									'Mobile columns',
-									'vova-posts-grid'
+									'vova-post-grids'
 								) }
 								value={ attributes.mobileColumns }
 								allowReset
@@ -1665,7 +1665,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							<RangeControl
 								label={ __(
 									'Horizontal gap',
-									'vova-posts-grid'
+									'vova-post-grids'
 								) }
 								value={ attributes.horizontalGap }
 								allowReset
@@ -1685,7 +1685,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							<RangeControl
 								label={ __(
 									'Vertical gap',
-									'vova-posts-grid'
+									'vova-post-grids'
 								) }
 								value={ attributes.verticalGap }
 								allowReset
@@ -1705,7 +1705,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							<RangeControl
 								label={ __(
 									'Inner element gap',
-									'vova-posts-grid'
+									'vova-post-grids'
 								) }
 								value={ attributes.innerElementGap }
 								allowReset
@@ -1726,10 +1726,10 @@ export default function Edit( { attributes, setAttributes } ) {
 					) }
 					{ activeInspectorTab === INSPECTOR_TAB_BLOCK && (
 						<PanelBody
-							title={ __( 'Pagination', 'vova-posts-grid' ) }
+							title={ __( 'Pagination', 'vova-post-grids' ) }
 						>
 							<SelectControl
-								label={ __( 'Pagination', 'vova-posts-grid' ) }
+								label={ __( 'Pagination', 'vova-post-grids' ) }
 								value={ attributes.paginationType }
 								options={ PAGINATION_OPTIONS }
 								onChange={ ( paginationType ) =>
@@ -1739,7 +1739,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							<SelectControl
 								label={ __(
 									'Pagination alignment',
-									'vova-posts-grid'
+									'vova-post-grids'
 								) }
 								value={
 									attributes.paginationAlignment || 'center'
@@ -1752,9 +1752,9 @@ export default function Edit( { attributes, setAttributes } ) {
 						</PanelBody>
 					) }
 					{ activeInspectorTab === INSPECTOR_TAB_CARD && (
-						<PanelBody title={ __( 'Image', 'vova-posts-grid' ) }>
+						<PanelBody title={ __( 'Image', 'vova-post-grids' ) }>
 							<SelectControl
-								label={ __( 'Image size', 'vova-posts-grid' ) }
+								label={ __( 'Image size', 'vova-post-grids' ) }
 								value={ attributes.imageSize }
 								options={ IMAGE_SIZE_OPTIONS }
 								onChange={ ( imageSize ) =>
@@ -1764,7 +1764,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							<SelectControl
 								label={ __(
 									'Image aspect ratio',
-									'vova-posts-grid'
+									'vova-post-grids'
 								) }
 								value={ attributes.imageAspectRatio }
 								options={ ASPECT_RATIO_OPTIONS }
@@ -1773,7 +1773,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								}
 							/>
 							<SelectControl
-								label={ __( 'Image fit', 'vova-posts-grid' ) }
+								label={ __( 'Image fit', 'vova-post-grids' ) }
 								value={ attributes.imageObjectFit || 'cover' }
 								options={ IMAGE_OBJECT_FIT_OPTIONS }
 								onChange={ ( imageObjectFit ) =>
@@ -1783,7 +1783,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							<SelectControl
 								label={ __(
 									'Image position',
-									'vova-posts-grid'
+									'vova-post-grids'
 								) }
 								value={
 									attributes.imageObjectPosition ||
@@ -1797,7 +1797,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							<RangeControl
 								label={ __(
 									'Image border radius',
-									'vova-posts-grid'
+									'vova-post-grids'
 								) }
 								value={ attributes.imageBorderRadius ?? 10 }
 								allowReset
@@ -1817,15 +1817,15 @@ export default function Edit( { attributes, setAttributes } ) {
 						</PanelBody>
 					) }
 					{ activeInspectorTab === INSPECTOR_TAB_BLOCK && (
-						<PanelBody title={ __( 'States', 'vova-posts-grid' ) }>
+						<PanelBody title={ __( 'States', 'vova-post-grids' ) }>
 							<TextControl
 								label={ __(
 									'Empty state text',
-									'vova-posts-grid'
+									'vova-post-grids'
 								) }
 								placeholder={ __(
 									'No posts found.',
-									'vova-posts-grid'
+									'vova-post-grids'
 								) }
 								value={ attributes.emptyStateText || '' }
 								maxLength={ MAX_EMPTY_STATE_TEXT_LENGTH }
@@ -1841,7 +1841,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							<ToggleControl
 								label={ __(
 									'Loading skeleton',
-									'vova-posts-grid'
+									'vova-post-grids'
 								) }
 								checked={ !! attributes.loadingSkeleton }
 								onChange={ ( loadingSkeleton ) =>
@@ -1852,7 +1852,7 @@ export default function Edit( { attributes, setAttributes } ) {
 					) }
 					{ activeInspectorTab === INSPECTOR_TAB_CARD && (
 						<PanelBody
-							title={ __( 'Card content', 'vova-posts-grid' ) }
+							title={ __( 'Card content', 'vova-post-grids' ) }
 						>
 							<CardElementsControl
 								elements={ attributes.elements }
@@ -1872,7 +1872,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							<RangeControl
 								label={ __(
 									'Excerpt length',
-									'vova-posts-grid'
+									'vova-post-grids'
 								) }
 								value={ attributes.excerptLength }
 								allowReset
@@ -1892,7 +1892,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							<ToggleControl
 								label={ __(
 									'Full card clickable',
-									'vova-posts-grid'
+									'vova-post-grids'
 								) }
 								checked={ !! attributes.fullCardClickable }
 								onChange={ ( fullCardClickable ) =>
@@ -1902,7 +1902,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							<ToggleControl
 								label={ __(
 									'Open links in new tab',
-									'vova-posts-grid'
+									'vova-post-grids'
 								) }
 								checked={ !! attributes.openLinksInNewTab }
 								onChange={ ( openLinksInNewTab ) =>
@@ -1912,7 +1912,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							<SelectControl
 								label={ __(
 									'Read more style',
-									'vova-posts-grid'
+									'vova-post-grids'
 								) }
 								value={ attributes.readMoreStyle || 'button' }
 								options={ READ_MORE_STYLE_OPTIONS }
@@ -1923,11 +1923,11 @@ export default function Edit( { attributes, setAttributes } ) {
 							<TextControl
 								label={ __(
 									'Read more label',
-									'vova-posts-grid'
+									'vova-post-grids'
 								) }
 								placeholder={ __(
 									'Read more',
-									'vova-posts-grid'
+									'vova-post-grids'
 								) }
 								value={ attributes.readMoreLabel || '' }
 								maxLength={ MAX_READ_MORE_LABEL_LENGTH }
@@ -1945,7 +1945,7 @@ export default function Edit( { attributes, setAttributes } ) {
 								<RangeControl
 									label={ __(
 										'Read More Button Padding',
-										'vova-posts-grid'
+										'vova-post-grids'
 									) }
 									value={
 										attributes.readMorePadding ??
@@ -1973,7 +1973,7 @@ export default function Edit( { attributes, setAttributes } ) {
 					) }
 					{ activeInspectorTab === INSPECTOR_TAB_CARD && (
 						<PanelBody
-							title={ __( 'Typography', 'vova-posts-grid' ) }
+							title={ __( 'Typography', 'vova-post-grids' ) }
 						>
 							{ FONT_SIZE_CONTROLS.map( ( control ) => (
 								<RangeControl
@@ -2006,7 +2006,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							<RangeControl
 								label={ __(
 									'Text line height',
-									'vova-posts-grid'
+									'vova-post-grids'
 								) }
 								value={ attributes.textLineHeight ?? 1.35 }
 								allowReset
@@ -2031,14 +2031,14 @@ export default function Edit( { attributes, setAttributes } ) {
 							attributes={ attributes }
 							setAttributes={ setAttributes }
 							controls={ COLOR_CONTROLS }
-							title={ __( 'Colors', 'vova-posts-grid' ) }
+							title={ __( 'Colors', 'vova-post-grids' ) }
 						/>
 					) }
 				</div>
 			</InspectorControls>
-			<div className="vovapg-posts-grid__editor-preview">
+			<div className="vovapg-post-grids__editor-preview">
 				{ isLoading && (
-					<div className="vovapg-posts-grid__editor-loading">
+					<div className="vovapg-post-grids__editor-loading">
 						<Spinner />
 					</div>
 				) }

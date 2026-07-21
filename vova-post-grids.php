@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: Vova's Posts Grid
- * Plugin URI: https://vanokhin.github.io/vova-posts-grid/
+ * Plugin Name: Vova's Post Grids
+ * Plugin URI: https://vanokhin.github.io/vova-post-grids/
  * Description: A responsive posts grid block with flexible queries and AJAX pagination.
  * Version: 999-version
  * Author: Vova Anokhin
- * Text Domain: vova-posts-grid
+ * Text Domain: vova-post-grids
  * Domain Path: /languages
  * Requires at least: 6.5
  * Requires PHP: 7.4
@@ -24,15 +24,15 @@ define( 'VOVAPG_PLUGIN_FILE', __FILE__ );
 define( 'VOVAPG_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'VOVAPG_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
-require_once VOVAPG_PLUGIN_DIR . 'includes/class-vovapg-posts-grid.php';
+require_once VOVAPG_PLUGIN_DIR . 'includes/class-vovapg-post-grids.php';
 
 /**
- * Registers the Posts Grid block from built metadata.
+ * Registers the Post Grids block from built metadata.
  *
  * @return void
  */
 function vovapg_register_block(): void {
-	$block_path = VOVAPG_PLUGIN_DIR . 'build/blocks/posts-grid';
+	$block_path = VOVAPG_PLUGIN_DIR . 'build/blocks/post-grids';
 
 	if ( ! file_exists( $block_path . '/block.json' ) ) {
 		return;
@@ -40,7 +40,7 @@ function vovapg_register_block(): void {
 
 	register_block_type(
 		$block_path,
-		array( 'category' => 'vova-posts-grid' )
+		array( 'category' => 'vova-post-grids' )
 	);
 }
 
@@ -52,7 +52,7 @@ function vovapg_register_block(): void {
  */
 function vovapg_add_block_category( array $categories ): array {
 	foreach ( $categories as $category ) {
-		if ( isset( $category['slug'] ) && 'vova-posts-grid' === $category['slug'] ) {
+		if ( isset( $category['slug'] ) && 'vova-post-grids' === $category['slug'] ) {
 			return $categories;
 		}
 	}
@@ -60,8 +60,8 @@ function vovapg_add_block_category( array $categories ): array {
 	array_unshift(
 		$categories,
 		array(
-			'slug'  => 'vova-posts-grid',
-			'title' => __( "Vova's Posts Grid", 'vova-posts-grid' ),
+			'slug'  => 'vova-post-grids',
+			'title' => __( "Vova's Post Grids", 'vova-post-grids' ),
 			'icon'  => null,
 		)
 	);

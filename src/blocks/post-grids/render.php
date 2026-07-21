@@ -1,6 +1,6 @@
 <?php
 /**
- * Server-side rendering for the Posts Grid block.
+ * Server-side rendering for the Post Grids block.
  *
  * @package VovaPostsGrid
  *

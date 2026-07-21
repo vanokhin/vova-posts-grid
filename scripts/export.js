@@ -30,28 +30,28 @@ const releaseEntries = [
 	'readme.txt',
 	'scripts',
 	'src',
-	'vova-posts-grid.php',
+	'vova-post-grids.php',
 ];
 
 const requiredReleaseFiles = [
 	'LICENSE',
-	'build/blocks/posts-grid/block.json',
-	'build/blocks/posts-grid/index.asset.php',
-	'build/blocks/posts-grid/index.css',
-	'build/blocks/posts-grid/index.js',
-	'build/blocks/posts-grid/render.php',
-	'build/blocks/posts-grid/style-index.css',
-	'build/blocks/posts-grid/view.asset.php',
-	'build/blocks/posts-grid/view.js',
-	'includes/class-vovapg-posts-grid.php',
-	'languages/vova-posts-grid.pot',
+	'build/blocks/post-grids/block.json',
+	'build/blocks/post-grids/index.asset.php',
+	'build/blocks/post-grids/index.css',
+	'build/blocks/post-grids/index.js',
+	'build/blocks/post-grids/render.php',
+	'build/blocks/post-grids/style-index.css',
+	'build/blocks/post-grids/view.asset.php',
+	'build/blocks/post-grids/view.js',
+	'includes/class-vovapg-post-grids.php',
+	'languages/vova-post-grids.pot',
 	'package-lock.json',
 	'package.json',
 	'readme.txt',
 	'scripts/export.js',
 	'scripts/remove-pot-creation-date.js',
-	'src/blocks/posts-grid/block.json',
-	'vova-posts-grid.php',
+	'src/blocks/post-grids/block.json',
+	'vova-post-grids.php',
 ];
 
 const forbiddenPatterns = [
@@ -152,30 +152,30 @@ const replaceVersionPlaceholder = ( filePath ) => {
 
 const replaceVersionPlaceholders = ( pluginDirectory ) => {
 	[
-		'vova-posts-grid.php',
+		'vova-post-grids.php',
 		'readme.txt',
-		'src/blocks/posts-grid/block.json',
-		'build/blocks/posts-grid/block.json',
+		'src/blocks/post-grids/block.json',
+		'build/blocks/post-grids/block.json',
 	].forEach( ( relativePath ) => {
 		replaceVersionPlaceholder( path.join( pluginDirectory, relativePath ) );
 	} );
 };
 
 const validateReleaseMetadata = ( pluginDirectory ) => {
-	assertEqual( packageName, 'vova-posts-grid', 'package.json name' );
+	assertEqual( packageName, 'vova-post-grids', 'package.json name' );
 
 	const pluginContents = fs.readFileSync(
-		path.join( pluginDirectory, 'vova-posts-grid.php' ),
+		path.join( pluginDirectory, 'vova-post-grids.php' ),
 		'utf8'
 	);
 	const expectedPluginHeaders = {
-		'Plugin Name': "Vova's Posts Grid",
+		'Plugin Name': "Vova's Post Grids",
 		Version: packageVersion,
 		'Requires at least': '6.5',
 		'Requires PHP': '7.4',
 		Author: 'Vova Anokhin',
 		License: 'GPL-2.0-or-later',
-		'Text Domain': 'vova-posts-grid',
+		'Text Domain': 'vova-post-grids',
 		'Domain Path': '/languages',
 	};
 
@@ -214,7 +214,7 @@ const validateReleaseMetadata = ( pluginDirectory ) => {
 		const blockPath = path.join(
 			pluginDirectory,
 			directory,
-			'blocks/posts-grid/block.json'
+			'blocks/post-grids/block.json'
 		);
 		const blockMetadata = JSON.parse(
 			fs.readFileSync( blockPath, 'utf8' )
@@ -222,7 +222,7 @@ const validateReleaseMetadata = ( pluginDirectory ) => {
 
 		assertEqual(
 			blockMetadata.name,
-			'vovapg/posts-grid',
+			'vovapg/post-grids',
 			`${ directory } block name`
 		);
 		assertEqual(
@@ -232,17 +232,17 @@ const validateReleaseMetadata = ( pluginDirectory ) => {
 		);
 		assertEqual(
 			blockMetadata.textdomain,
-			'vova-posts-grid',
+			'vova-post-grids',
 			`${ directory } block text domain`
 		);
 	} );
 
 	const potContents = fs.readFileSync(
-		path.join( pluginDirectory, 'languages/vova-posts-grid.pot' ),
+		path.join( pluginDirectory, 'languages/vova-post-grids.pot' ),
 		'utf8'
 	);
 
-	if ( ! potContents.includes( 'X-Domain: vova-posts-grid' ) ) {
+	if ( ! potContents.includes( 'X-Domain: vova-post-grids' ) ) {
 		throw new Error(
 			'Translation template has an unexpected text domain.'
 		);
@@ -447,7 +447,7 @@ const getArchiveHash = ( archivePath ) =>
 const main = () => {
 	run( npmCommand, [ 'run', 'build' ] );
 	replaceVersionPlaceholder(
-		path.join( rootDir, 'languages/vova-posts-grid.pot' )
+		path.join( rootDir, 'languages/vova-post-grids.pot' )
 	);
 
 	const distDirectory = path.join( rootDir, 'dist' );

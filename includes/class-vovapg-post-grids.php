@@ -1,6 +1,6 @@
 <?php
 /**
- * Posts Grid rendering and AJAX endpoints.
+ * Post Grids rendering and AJAX endpoints.
  *
  * @package VovaPostsGrid
  */
@@ -10,12 +10,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Posts Grid block helpers.
+ * Post Grids block helpers.
  */
 final class VOVAPG_Posts_Grid {
 	private const REST_NAMESPACE                 = 'vovapg/v1';
-	private const REST_ROUTE                     = '/posts-grid/render';
-	private const REST_PREVIEW_ROUTE             = '/posts-grid/preview';
+	private const REST_ROUTE                     = '/post-grids/render';
+	private const REST_PREVIEW_ROUTE             = '/post-grids/preview';
 	private const MAX_PUBLIC_PAGE                = 100;
 	private const MAX_POSTS_PER_PAGE             = 50;
 	private const MAX_TERMS                      = 50;
@@ -384,7 +384,7 @@ final class VOVAPG_Posts_Grid {
 				'rest_invalid_type',
 				sprintf(
 					/* translators: %s: REST parameter name. */
-					__( '%s must be an integer.', 'vova-posts-grid' ),
+					__( '%s must be an integer.', 'vova-post-grids' ),
 					$param
 				)
 			);
@@ -449,7 +449,7 @@ final class VOVAPG_Posts_Grid {
 		if ( ! self::is_public_ajax_query_allowed( $settings ) ) {
 			return new WP_Error(
 				'vovapg_public_ajax_query_not_allowed',
-				__( 'Public pagination is unavailable for random ordering or keyword searches.', 'vova-posts-grid' ),
+				__( 'Public pagination is unavailable for random ordering or keyword searches.', 'vova-post-grids' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -493,7 +493,7 @@ final class VOVAPG_Posts_Grid {
 		if ( ! is_string( $encoded ) ) {
 			return new WP_Error(
 				'vovapg_invalid_rest_attributes',
-				__( 'Posts Grid attributes could not be encoded.', 'vova-posts-grid' ),
+				__( 'Post Grids attributes could not be encoded.', 'vova-post-grids' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -501,7 +501,7 @@ final class VOVAPG_Posts_Grid {
 		if ( strlen( $encoded ) > self::MAX_REST_ATTRIBUTES_BYTES ) {
 			return new WP_Error(
 				'vovapg_rest_attributes_too_large',
-				__( 'Posts Grid attributes exceed the maximum allowed size.', 'vova-posts-grid' ),
+				__( 'Post Grids attributes exceed the maximum allowed size.', 'vova-post-grids' ),
 				array( 'status' => 413 )
 			);
 		}
@@ -549,22 +549,22 @@ final class VOVAPG_Posts_Grid {
 		$ajax_enabled = $ajax_query_allowed && 'none' !== $settings['paginationType'] && $result['max_num_pages'] > 1;
 
 		$classes = array(
-			'vovapg-posts-grid',
+			'vovapg-post-grids',
 			'vovapg-block',
 		);
 
 		if ( 'auto' !== $settings['imageAspectRatio'] ) {
-			$classes[] = 'vovapg-posts-grid--fixed-image';
+			$classes[] = 'vovapg-post-grids--fixed-image';
 		}
 
 		if ( ! empty( $settings['loadingSkeleton'] ) ) {
-			$classes[] = 'vovapg-posts-grid--has-loading-skeleton';
+			$classes[] = 'vovapg-post-grids--has-loading-skeleton';
 		}
 
 		$wrapper_data = array(
 			'class'             => implode( ' ', $classes ),
 			'style'             => self::get_wrapper_style( $settings ),
-			'data-vovapg-block' => 'posts-grid',
+			'data-vovapg-block' => 'post-grids',
 		);
 
 		if ( $ajax_enabled ) {
@@ -584,7 +584,7 @@ final class VOVAPG_Posts_Grid {
 		ob_start();
 		?>
 		<div <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-			<div class="vovapg-posts-grid__content" aria-live="polite">
+			<div class="vovapg-post-grids__content" aria-live="polite">
 				<?php echo $result['html']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</div>
 		</div>
@@ -677,13 +677,13 @@ final class VOVAPG_Posts_Grid {
 			'textLineHeight'      => self::clamp_float( $text_line_height, 1, 2.5 ),
 			'elements'            => self::normalize_elements( $attributes['elements'] ?? array() ),
 			'metaFields'          => self::normalize_meta_fields( $attributes['metaFields'] ?? array( 'date', 'author', 'categories' ) ),
-			'readMoreLabel'       => '' !== $read_more_label ? $read_more_label : __( 'Read more', 'vova-posts-grid' ),
+			'readMoreLabel'       => '' !== $read_more_label ? $read_more_label : __( 'Read more', 'vova-post-grids' ),
 			'readMoreStyle'       => $read_more_style,
 			'readMorePadding'     => self::clamp_float( $button_padding, 0, 80 ),
 			'fullCardClickable'   => array_key_exists( 'fullCardClickable', $attributes ) ? (bool) $attributes['fullCardClickable'] : false,
 			'openLinksInNewTab'   => array_key_exists( 'openLinksInNewTab', $attributes ) ? (bool) $attributes['openLinksInNewTab'] : false,
 			'excerptLength'       => self::clamp_int( $excerpt_length, 5, 80 ),
-			'emptyStateText'      => '' !== $empty_state_text ? $empty_state_text : __( 'No posts found.', 'vova-posts-grid' ),
+			'emptyStateText'      => '' !== $empty_state_text ? $empty_state_text : __( 'No posts found.', 'vova-post-grids' ),
 			'loadingSkeleton'     => array_key_exists( 'loadingSkeleton', $attributes ) ? (bool) $attributes['loadingSkeleton'] : false,
 			'contextPostId'       => isset( $attributes['contextPostId'] ) ? absint( $attributes['contextPostId'] ) : 0,
 			'paginationType'      => $pagination_type,
@@ -1020,7 +1020,7 @@ final class VOVAPG_Posts_Grid {
 
 		if ( $posts_query->have_posts() ) :
 			?>
-			<div class="vovapg-posts-grid__grid">
+			<div class="vovapg-post-grids__grid">
 				<?php
 				while ( $posts_query->have_posts() ) :
 					$posts_query->the_post();
@@ -1032,7 +1032,7 @@ final class VOVAPG_Posts_Grid {
 			echo self::render_pagination( $settings, $page, (int) $posts_query->max_num_pages ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		else :
 			?>
-			<div class="vovapg-posts-grid__empty"><?php echo esc_html( $settings['emptyStateText'] ); ?></div>
+			<div class="vovapg-post-grids__empty"><?php echo esc_html( $settings['emptyStateText'] ); ?></div>
 			<?php
 		endif;
 
@@ -1055,7 +1055,7 @@ final class VOVAPG_Posts_Grid {
 	 */
 	private static function empty_result( string $message, int $page = 1 ): array {
 		return array(
-			'html'          => '<div class="vovapg-posts-grid__empty">' . esc_html( $message ) . '</div>',
+			'html'          => '<div class="vovapg-post-grids__empty">' . esc_html( $message ) . '</div>',
 			'page'          => $page,
 			'max_num_pages' => 0,
 			'found_posts'   => 0,
@@ -1359,7 +1359,7 @@ final class VOVAPG_Posts_Grid {
 		}
 
 		?>
-		<div class="vovapg-posts-grid__card">
+		<div class="vovapg-post-grids__card">
 			<?php
 			if ( ! empty( $settings['fullCardClickable'] ) ) {
 				self::render_card_overlay_link( $post, $settings );
@@ -1410,7 +1410,7 @@ final class VOVAPG_Posts_Grid {
 		}
 
 		/**
-		 * Filters whether a core-public post may be rendered by Posts Grid.
+		 * Filters whether a core-public post may be rendered by Post Grids.
 		 *
 		 * @param bool    $allowed Whether the post may be rendered.
 		 * @param WP_Post $post    Post object.
@@ -1434,7 +1434,7 @@ final class VOVAPG_Posts_Grid {
 			$post,
 			$settings['imageSize'],
 			array(
-				'class'   => 'vovapg-posts-grid__image',
+				'class'   => 'vovapg-post-grids__image',
 				'loading' => 'lazy',
 			)
 		);
@@ -1444,7 +1444,7 @@ final class VOVAPG_Posts_Grid {
 		}
 
 		?>
-		<a <?php echo self::get_post_link_attributes( $post, $settings, 'vovapg-posts-grid__image-link' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+		<a <?php echo self::get_post_link_attributes( $post, $settings, 'vovapg-post-grids__image-link' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 			<?php echo $image; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		</a>
 		<?php
@@ -1459,7 +1459,7 @@ final class VOVAPG_Posts_Grid {
 	 */
 	private static function render_post_title( WP_Post $post, array $settings ): void {
 		?>
-		<a <?php echo self::get_post_link_attributes( $post, $settings, 'vovapg-posts-grid__title' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+		<a <?php echo self::get_post_link_attributes( $post, $settings, 'vovapg-post-grids__title' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 			<?php echo esc_html( get_the_title( $post ) ); ?>
 		</a>
 		<?php
@@ -1488,8 +1488,8 @@ final class VOVAPG_Posts_Grid {
 		}
 
 		?>
-		<div class="vovapg-posts-grid__meta">
-			<?php echo implode( '<span class="vovapg-posts-grid__meta-separator" aria-hidden="true">/</span>', $items ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+		<div class="vovapg-post-grids__meta">
+			<?php echo implode( '<span class="vovapg-post-grids__meta-separator" aria-hidden="true">/</span>', $items ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		</div>
 		<?php
 	}
@@ -1504,7 +1504,7 @@ final class VOVAPG_Posts_Grid {
 	private static function get_post_meta_item_html( WP_Post $post, string $field ): string {
 		if ( 'date' === $field ) {
 			return sprintf(
-				'<time class="vovapg-posts-grid__meta-item" datetime="%1$s">%2$s</time>',
+				'<time class="vovapg-post-grids__meta-item" datetime="%1$s">%2$s</time>',
 				esc_attr( get_the_date( DATE_W3C, $post ) ),
 				esc_html( get_the_date( '', $post ) )
 			);
@@ -1512,7 +1512,7 @@ final class VOVAPG_Posts_Grid {
 
 		if ( 'author' === $field ) {
 			return sprintf(
-				'<span class="vovapg-posts-grid__meta-item">%1$s</span>',
+				'<span class="vovapg-post-grids__meta-item">%1$s</span>',
 				esc_html( get_the_author_meta( 'display_name', (int) $post->post_author ) )
 			);
 		}
@@ -1529,7 +1529,7 @@ final class VOVAPG_Posts_Grid {
 			}
 
 			return sprintf(
-				'<span class="vovapg-posts-grid__meta-item">%1$s</span>',
+				'<span class="vovapg-post-grids__meta-item">%1$s</span>',
 				esc_html( implode( ', ', wp_list_pluck( $categories, 'name' ) ) )
 			);
 		}
@@ -1538,12 +1538,12 @@ final class VOVAPG_Posts_Grid {
 			$comments_number = absint( get_comments_number( $post ) );
 			$label           = sprintf(
 				/* translators: %s: number of comments. */
-				_n( '%s comment', '%s comments', $comments_number, 'vova-posts-grid' ),
+				_n( '%s comment', '%s comments', $comments_number, 'vova-post-grids' ),
 				number_format_i18n( $comments_number )
 			);
 
 			return sprintf(
-				'<span class="vovapg-posts-grid__meta-item">%1$s</span>',
+				'<span class="vovapg-post-grids__meta-item">%1$s</span>',
 				esc_html( $label )
 			);
 		}
@@ -1556,7 +1556,7 @@ final class VOVAPG_Posts_Grid {
 			}
 
 			return sprintf(
-				'<time class="vovapg-posts-grid__meta-item" datetime="%1$s">%2$s</time>',
+				'<time class="vovapg-post-grids__meta-item" datetime="%1$s">%2$s</time>',
 				esc_attr( get_the_modified_date( DATE_W3C, $post ) ),
 				esc_html( $modified_date )
 			);
@@ -1566,12 +1566,12 @@ final class VOVAPG_Posts_Grid {
 			$minutes = self::get_post_reading_time_minutes( $post );
 			$label   = sprintf(
 				/* translators: %s: number of minutes. */
-				_n( '%s min read', '%s mins read', $minutes, 'vova-posts-grid' ),
+				_n( '%s min read', '%s mins read', $minutes, 'vova-post-grids' ),
 				number_format_i18n( $minutes )
 			);
 
 			return sprintf(
-				'<span class="vovapg-posts-grid__meta-item">%1$s</span>',
+				'<span class="vovapg-post-grids__meta-item">%1$s</span>',
 				esc_html( $label )
 			);
 		}
@@ -1627,13 +1627,13 @@ final class VOVAPG_Posts_Grid {
 		$badges = array();
 		foreach ( $terms as $term ) {
 			$badges[] = sprintf(
-				'<span class="vovapg-posts-grid__taxonomy-badge">%1$s</span>',
+				'<span class="vovapg-post-grids__taxonomy-badge">%1$s</span>',
 				esc_html( $term->name )
 			);
 		}
 
 		return sprintf(
-			'<span class="vovapg-posts-grid__meta-item vovapg-posts-grid__meta-item--taxonomy">%1$s</span>',
+			'<span class="vovapg-post-grids__meta-item vovapg-post-grids__meta-item--taxonomy">%1$s</span>',
 			implode( '', $badges )
 		);
 	}
@@ -1663,7 +1663,7 @@ final class VOVAPG_Posts_Grid {
 		}
 
 		?>
-		<div class="vovapg-posts-grid__excerpt vovapg-card__text"><?php echo esc_html( $excerpt ); ?></div>
+		<div class="vovapg-post-grids__excerpt vovapg-card__text"><?php echo esc_html( $excerpt ); ?></div>
 		<?php
 	}
 
@@ -1694,7 +1694,7 @@ final class VOVAPG_Posts_Grid {
 	 * @return void
 	 */
 	private static function render_read_more( WP_Post $post, array $settings ): void {
-		$classes = 'button' === $settings['readMoreStyle'] ? 'vovapg-posts-grid__read-more vovapg-button' : 'vovapg-posts-grid__read-more vovapg-posts-grid__read-more--text-link';
+		$classes = 'button' === $settings['readMoreStyle'] ? 'vovapg-post-grids__read-more vovapg-button' : 'vovapg-post-grids__read-more vovapg-post-grids__read-more--text-link';
 
 		?>
 		<a <?php echo self::get_post_link_attributes( $post, $settings, $classes ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
@@ -1713,12 +1713,12 @@ final class VOVAPG_Posts_Grid {
 	private static function render_card_overlay_link( WP_Post $post, array $settings ): void {
 		$label = sprintf(
 			/* translators: %s: post title. */
-			__( 'Open %s', 'vova-posts-grid' ),
+			__( 'Open %s', 'vova-post-grids' ),
 			get_the_title( $post )
 		);
 
 		?>
-		<a <?php echo self::get_post_link_attributes( $post, $settings, 'vovapg-posts-grid__card-link', $label ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>></a>
+		<a <?php echo self::get_post_link_attributes( $post, $settings, 'vovapg-post-grids__card-link', $label ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>></a>
 		<?php
 	}
 
@@ -1737,7 +1737,7 @@ final class VOVAPG_Posts_Grid {
 			'href'  => get_permalink( $post ),
 		);
 
-		if ( ! empty( $settings['fullCardClickable'] ) && 'vovapg-posts-grid__card-link' !== $class_name ) {
+		if ( ! empty( $settings['fullCardClickable'] ) && 'vovapg-post-grids__card-link' !== $class_name ) {
 			$attributes['tabindex']    = '-1';
 			$attributes['aria-hidden'] = 'true';
 		}
@@ -1782,26 +1782,26 @@ final class VOVAPG_Posts_Grid {
 
 		ob_start();
 		?>
-		<nav class="vovapg-posts-grid__pagination" aria-label="<?php esc_attr_e( 'Posts pagination', 'vova-posts-grid' ); ?>">
+		<nav class="vovapg-post-grids__pagination" aria-label="<?php esc_attr_e( 'Posts pagination', 'vova-post-grids' ); ?>">
 			<?php if ( $show_prev_next ) : ?>
-				<button class="vovapg-posts-grid__page-button vovapg-posts-grid__page-button--prev" type="button" data-vovapg-page="<?php echo esc_attr( (string) max( 1, $current_page - 1 ) ); ?>"<?php disabled( 1 === $current_page ); ?>>
-					<?php esc_html_e( 'Previous', 'vova-posts-grid' ); ?>
+				<button class="vovapg-post-grids__page-button vovapg-post-grids__page-button--prev" type="button" data-vovapg-page="<?php echo esc_attr( (string) max( 1, $current_page - 1 ) ); ?>"<?php disabled( 1 === $current_page ); ?>>
+					<?php esc_html_e( 'Previous', 'vova-post-grids' ); ?>
 				</button>
 			<?php endif; ?>
 			<?php if ( $show_numbers ) : ?>
 				<?php foreach ( $pages as $page ) : ?>
 					<?php if ( 'ellipsis' === $page ) : ?>
-						<span class="vovapg-posts-grid__page-ellipsis" aria-hidden="true">...</span>
+						<span class="vovapg-post-grids__page-ellipsis" aria-hidden="true">...</span>
 					<?php else : ?>
-						<button class="vovapg-posts-grid__page-button" type="button" data-vovapg-page="<?php echo esc_attr( (string) $page ); ?>"<?php echo (int) $page === $current_page ? ' aria-current="page"' : ''; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+						<button class="vovapg-post-grids__page-button" type="button" data-vovapg-page="<?php echo esc_attr( (string) $page ); ?>"<?php echo (int) $page === $current_page ? ' aria-current="page"' : ''; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 							<?php echo esc_html( (string) $page ); ?>
 						</button>
 					<?php endif; ?>
 				<?php endforeach; ?>
 			<?php endif; ?>
 			<?php if ( $show_prev_next ) : ?>
-				<button class="vovapg-posts-grid__page-button vovapg-posts-grid__page-button--next" type="button" data-vovapg-page="<?php echo esc_attr( (string) min( $max_num_pages, $current_page + 1 ) ); ?>"<?php disabled( $current_page === $max_num_pages ); ?>>
-					<?php esc_html_e( 'Next', 'vova-posts-grid' ); ?>
+				<button class="vovapg-post-grids__page-button vovapg-post-grids__page-button--next" type="button" data-vovapg-page="<?php echo esc_attr( (string) min( $max_num_pages, $current_page + 1 ) ); ?>"<?php disabled( $current_page === $max_num_pages ); ?>>
+					<?php esc_html_e( 'Next', 'vova-post-grids' ); ?>
 				</button>
 			<?php endif; ?>
 		</nav>
@@ -1849,37 +1849,37 @@ final class VOVAPG_Posts_Grid {
 	 * @return string Inline style value.
 	 */
 	private static function get_wrapper_style( array $settings ): string {
-		$style  = '--vovapg-posts-grid-columns-desktop:' . (int) $settings['desktopColumns'] . ';';
-		$style .= '--vovapg-posts-grid-columns-tablet:' . (int) $settings['tabletColumns'] . ';';
-		$style .= '--vovapg-posts-grid-columns-mobile:' . (int) $settings['mobileColumns'] . ';';
-		$style .= '--vovapg-posts-grid-horizontal-gap:' . (int) $settings['horizontalGap'] . 'px;';
-		$style .= '--vovapg-posts-grid-vertical-gap:' . (int) $settings['verticalGap'] . 'px;';
-		$style .= '--vovapg-posts-grid-image-object-fit:' . $settings['imageObjectFit'] . ';';
-		$style .= '--vovapg-posts-grid-image-object-position:' . $settings['imageObjectPosition'] . ';';
-		$style .= '--vovapg-posts-grid-image-border-radius:' . (int) $settings['imageBorderRadius'] . 'px;';
-		$style .= '--vovapg-posts-grid-inner-element-gap:' . (int) $settings['innerElementGap'] . 'px;';
-		$style .= '--vovapg-posts-grid-title-font-size:' . (float) $settings['titleFontSize'] . 'px;';
-		$style .= '--vovapg-posts-grid-meta-font-size:' . (float) $settings['metaFontSize'] . 'px;';
-		$style .= '--vovapg-posts-grid-excerpt-font-size:' . (float) $settings['excerptFontSize'] . 'px;';
-		$style .= '--vovapg-posts-grid-read-more-font-size:' . (float) $settings['readMoreFontSize'] . 'px;';
-		$style .= '--vovapg-posts-grid-text-line-height:' . (float) $settings['textLineHeight'] . ';';
-		$style .= '--vovapg-posts-grid-read-more-button-padding:' . (float) $settings['readMorePadding'] . 'px ' . round( (float) $settings['readMorePadding'] * self::READ_MORE_BUTTON_PADDING_RATIO, 3 ) . 'px;';
-		$style .= '--vovapg-posts-grid-pagination-justify-content:' . self::get_pagination_justify_content( $settings['paginationAlignment'] ) . ';';
+		$style  = '--vovapg-post-grids-columns-desktop:' . (int) $settings['desktopColumns'] . ';';
+		$style .= '--vovapg-post-grids-columns-tablet:' . (int) $settings['tabletColumns'] . ';';
+		$style .= '--vovapg-post-grids-columns-mobile:' . (int) $settings['mobileColumns'] . ';';
+		$style .= '--vovapg-post-grids-horizontal-gap:' . (int) $settings['horizontalGap'] . 'px;';
+		$style .= '--vovapg-post-grids-vertical-gap:' . (int) $settings['verticalGap'] . 'px;';
+		$style .= '--vovapg-post-grids-image-object-fit:' . $settings['imageObjectFit'] . ';';
+		$style .= '--vovapg-post-grids-image-object-position:' . $settings['imageObjectPosition'] . ';';
+		$style .= '--vovapg-post-grids-image-border-radius:' . (int) $settings['imageBorderRadius'] . 'px;';
+		$style .= '--vovapg-post-grids-inner-element-gap:' . (int) $settings['innerElementGap'] . 'px;';
+		$style .= '--vovapg-post-grids-title-font-size:' . (float) $settings['titleFontSize'] . 'px;';
+		$style .= '--vovapg-post-grids-meta-font-size:' . (float) $settings['metaFontSize'] . 'px;';
+		$style .= '--vovapg-post-grids-excerpt-font-size:' . (float) $settings['excerptFontSize'] . 'px;';
+		$style .= '--vovapg-post-grids-read-more-font-size:' . (float) $settings['readMoreFontSize'] . 'px;';
+		$style .= '--vovapg-post-grids-text-line-height:' . (float) $settings['textLineHeight'] . ';';
+		$style .= '--vovapg-post-grids-read-more-button-padding:' . (float) $settings['readMorePadding'] . 'px ' . round( (float) $settings['readMorePadding'] * self::READ_MORE_BUTTON_PADDING_RATIO, 3 ) . 'px;';
+		$style .= '--vovapg-post-grids-pagination-justify-content:' . self::get_pagination_justify_content( $settings['paginationAlignment'] ) . ';';
 
 		if ( '' !== $settings['accentColor'] ) {
-			$style .= '--vovapg-posts-grid-accent-color:' . $settings['accentColor'] . ';';
+			$style .= '--vovapg-post-grids-accent-color:' . $settings['accentColor'] . ';';
 		}
 
 		if ( '' !== $settings['metaColor'] ) {
-			$style .= '--vovapg-posts-grid-meta-color:' . $settings['metaColor'] . ';';
+			$style .= '--vovapg-post-grids-meta-color:' . $settings['metaColor'] . ';';
 		}
 
 		if ( '' !== $settings['excerptColor'] ) {
-			$style .= '--vovapg-posts-grid-excerpt-color:' . $settings['excerptColor'] . ';';
+			$style .= '--vovapg-post-grids-excerpt-color:' . $settings['excerptColor'] . ';';
 		}
 
 		if ( 'auto' !== $settings['imageAspectRatio'] ) {
-			$style .= '--vovapg-posts-grid-image-aspect-ratio:' . str_replace( ':', ' / ', $settings['imageAspectRatio'] ) . ';';
+			$style .= '--vovapg-post-grids-image-aspect-ratio:' . str_replace( ':', ' / ', $settings['imageAspectRatio'] ) . ';';
 		}
 
 		return $style;

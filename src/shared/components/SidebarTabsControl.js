@@ -15,7 +15,7 @@ export default function SidebarTabsControl( {
 	activeTab,
 	onChange = noop,
 	className,
-	ariaLabel = __( 'Settings sections', 'vova-posts-grid' ),
+	ariaLabel = __( 'Settings sections', 'vova-post-grids' ),
 } ) {
 	const normalizedTabs = normalizeTabs( tabs );
 

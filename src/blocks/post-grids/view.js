@@ -12,7 +12,7 @@ const parseAttributes = ( value ) => {
 
 const getSkeletonCardCount = ( content, attributes ) => {
 	const currentCardCount = content.querySelectorAll(
-		'.vovapg-posts-grid__card'
+		'.vovapg-post-grids__card'
 	).length;
 
 	if ( currentCardCount > 0 ) {
@@ -30,14 +30,14 @@ const getSkeletonCardCount = ( content, attributes ) => {
 const getSkeletonMarkup = ( content, attributes ) => {
 	const cards = Array.from(
 		{ length: getSkeletonCardCount( content, attributes ) },
-		() => '<div class="vovapg-posts-grid__card"></div>'
+		() => '<div class="vovapg-post-grids__card"></div>'
 	).join( '' );
 
-	return `<div class="vovapg-posts-grid__grid" aria-hidden="true">${ cards }</div>`;
+	return `<div class="vovapg-post-grids__grid" aria-hidden="true">${ cards }</div>`;
 };
 
 const initPostsGrid = ( block ) => {
-	const content = block.querySelector( '.vovapg-posts-grid__content' );
+	const content = block.querySelector( '.vovapg-post-grids__content' );
 	const restUrl = block.dataset.vovapgRestUrl;
 
 	if ( ! content || ! restUrl || ! window.fetch ) {
@@ -48,7 +48,7 @@ const initPostsGrid = ( block ) => {
 	let controller = null;
 
 	const setLoading = ( isLoading ) => {
-		block.classList.toggle( 'vovapg-posts-grid--loading', isLoading );
+		block.classList.toggle( 'vovapg-post-grids--loading', isLoading );
 		block.setAttribute( 'aria-busy', isLoading ? 'true' : 'false' );
 	};
 
@@ -100,7 +100,7 @@ const initPostsGrid = ( block ) => {
 				content.innerHTML = response.html;
 				block.dataset.vovapgPage = String( response.page || nextPage );
 				block.dispatchEvent(
-					new CustomEvent( 'vovapg-posts-grid-page-loaded', {
+					new CustomEvent( 'vovapg-post-grids-page-loaded', {
 						bubbles: true,
 						detail: response,
 					} )
@@ -111,7 +111,7 @@ const initPostsGrid = ( block ) => {
 					return;
 				}
 
-				block.classList.add( 'vovapg-posts-grid--error' );
+				block.classList.add( 'vovapg-post-grids--error' );
 				content.innerHTML = previousHtml;
 			} )
 			.finally( () => {
@@ -122,7 +122,7 @@ const initPostsGrid = ( block ) => {
 
 	block.addEventListener( 'click', ( event ) => {
 		const button = event.target.closest(
-			'.vovapg-posts-grid__page-button'
+			'.vovapg-post-grids__page-button'
 		);
 
 		if ( ! button || ! block.contains( button ) || button.disabled ) {
@@ -136,7 +136,7 @@ const initPostsGrid = ( block ) => {
 
 const initAllPostsGrids = () => {
 	document
-		.querySelectorAll( '[data-vovapg-block="posts-grid"]' )
+		.querySelectorAll( '[data-vovapg-block="post-grids"]' )
 		.forEach( initPostsGrid );
 };
 
